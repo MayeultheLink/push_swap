@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 14:05:11 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/07/30 19:32:01 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/07/30 19:42:34 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,10 @@
 t_stack	quick_sort(t_stack stacks)
 {
 	int		size;
-	int		i;
 
-	i = 0;
 	size = ft_lstsize(stacks.a) / 5;
 	while (ft_lstsize(stacks.a) > size)
-	{
-		stacks = quick_sort_a2b(stacks, i, i + size);
-		i += size;
-	}
+		stacks = quick_sort_a2b(stacks, ft_lstsize(stacks.b), ft_lstsize(stacks.b) + size);
 
 
 	//	a = 100, b = 4 * 100	//
@@ -39,6 +34,14 @@ t_stack	quick_sort(t_stack stacks)
 
 
 	size /= 5;
+	while (ft_lstsize(stacks.b) > size)
+		stacks = quick_sort_b2a(stacks, ft_lstsize(stacks.b) - size, 
+				ft_lstsize(stacks.b));
+
+
+	//	a = 100 + 7 * 50 + 4 * 10, b = 10	//
+
+
 	while (ft_lstsize(stacks.a) > size)
 		stacks = quick_sort_a2b(stacks, ft_lstsize(stacks.b), ft_lstsize(stacks.b) + size);
 	
