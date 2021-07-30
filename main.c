@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 14:24:58 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/07/30 19:26:43 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/07/30 20:44:18 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int	main(int ac, char **av)
 			stacks.b = stacks.b->next;
 		}
 	}
-	printf("\n");*/
+	printf("\n");
 	if (i)
 		printf("OK\n");
 	else
-		printf("NON TRIE\n");
+		printf("NON TRIE\n");*/
 	return (0);
 }

@@ -6,14 +6,51 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 14:05:11 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/07/30 19:42:34 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/07/30 20:48:11 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+t_stack	quick_sort_100(t_stack stacks)
+{
+	int		size;
+
+	size = ft_lstsize(stacks.a) / 2;
+	while (ft_lstsize(stacks.a) > size)
+		stacks = quick_sort_a2b(stacks, ft_lstsize(stacks.b), ft_lstsize(stacks.b) + size);
+
+
+	//	a = 50, b = 50	//
+
+	
+	size /= 2;
+	while (ft_lstsize(stacks.b) > size)
+		stacks = quick_sort_b2a(stacks, ft_lstsize(stacks.b) - size, 
+				ft_lstsize(stacks.b));
+
+
+	//	a = 50 + 25, b = 25	//
+
+
+	size = 10;
+	while (ft_lstsize(stacks.a) > size)
+		stacks = quick_sort_a2b(stacks, ft_lstsize(stacks.b), ft_lstsize(stacks.b) + size);
+	
+
+	//	a = 5, b = 7 * 10 + 25	//
+
+
+	stacks = sorting_a2b(stacks);
+
+	stacks = sorting(stacks);
+	return (stacks);
+}
+
 t_stack	quick_sort(t_stack stacks)
 {
+	if (ft_lstsize(stacks.a) == 100)
+		return (quick_sort_100(stacks));
 	int		size;
 
 	size = ft_lstsize(stacks.a) / 5;
@@ -114,13 +151,7 @@ t_stack	sorting(t_stack stacks)
 	while (stacks.b)
 	{
 		while (stacks.b && stacks.b->content == (ft_lstsize(stacks.b) - 1))
-		{
 			stacks = cmd_pa(stacks);
-			if (stacks.b && stacks.b->next 
-				&& stacks.b->next->content == ft_lstsize(stacks.b) - 1
-				&& stacks.b->next->content == stacks.b->content + 1)
-				stacks = cmd_sb(stacks);
-		}
 		i = 0;
 		tmp = stacks.b;
 		while (tmp && tmp->content != (ft_lstsize(stacks.b) - 1))
