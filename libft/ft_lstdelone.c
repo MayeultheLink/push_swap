@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 09:04:49 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/07/02 21:35:47 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/02 18:10:03 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,6 @@ t_list	*ft_lstdelone(t_list *lst, int content)
 
 	previous = lst;
 	next = lst;
-	if (lst && lst->next && lst->content == content)
-	{
-		lst = lst->next;
-		previous = NULL;
-		free(previous);
-		return (lst);
-	}
 	while (next && next->next && next->content != content)
 		next = next->next;
 	if (next && next->next && next->content == content)
@@ -37,6 +30,7 @@ t_list	*ft_lstdelone(t_list *lst, int content)
 			previous = previous->next;
 		}
 		previous->next = next->next;
+		next = NULL;
 		free(next);
 	}
 	return (lst);

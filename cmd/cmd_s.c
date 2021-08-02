@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:07:19 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/07/30 16:59:31 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/02 17:45:19 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 t_stack	cmd_sa(t_stack stacks)
 {
-	int tmp;
+	int	tmp;
 
-	if (stacks.b && stacks.b->next && stacks.b->content < stacks.b->next->content)
+	if (stacks.b && stacks.b->next
+		&& stacks.b->content < stacks.b->next->content)
 		return (cmd_ss(stacks));
 	if (ft_lstsize(stacks.a) > 1)
 	{
@@ -32,7 +33,8 @@ t_stack	cmd_sb(t_stack stacks)
 {
 	int	tmp;
 
-	if (stacks.a && stacks.a->next && stacks.a->content > stacks.a->next->content)
+	if (stacks.a && stacks.a->next
+		&& stacks.a->content > stacks.a->next->content)
 		return (cmd_ss(stacks));
 	if (ft_lstsize(stacks.b) > 1)
 	{

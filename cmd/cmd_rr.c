@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:19:58 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/07/30 17:01:41 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/02 17:44:32 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_stack	cmd_rra(t_stack stacks)
 	int		param2;
 	t_list	*tmp;
 
-	if (stacks.b && stacks.b->next 
+	if (stacks.b && stacks.b->next
 		&& stacks.b->content < ft_lstlast(stacks.b)->content)
 		return (cmd_rrr(stacks));
 	tmp = stacks.a;
@@ -47,7 +47,7 @@ t_stack	cmd_rrb(t_stack stacks)
 	int		param2;
 	t_list	*tmp;
 
-	if (stacks.a && stacks.a->next 
+	if (stacks.a && stacks.a->next
 		&& stacks.a->content > ft_lstlast(stacks.a)->content)
 		return (cmd_rrr(stacks));
 	tmp = stacks.b;

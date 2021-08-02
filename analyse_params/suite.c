@@ -6,13 +6,13 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 18:49:06 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/07/30 16:19:18 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/02 18:03:40 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		is_sorted(t_list *lst)
+int	is_sorted(t_list *lst)
 {
 	t_list	*tmp;
 
@@ -26,20 +26,20 @@ int		is_sorted(t_list *lst)
 	return (1);
 }
 
-int		size_suite(t_list *lst)
+int	size_suite(t_list *lst)
 {
 	t_list	*tmp;
 	int		i;
 	int		size;
 	int		content;
 
-	tmp = lst->next;
+	tmp = lst;
 	content = lst->content;
-	i = 1;
 	size = 1;
-
 	while (tmp)
 	{
+		tmp = tmp->next;
+		i = 1;
 		while (tmp && tmp->content == content + 1)
 		{
 			i++;
@@ -48,30 +48,26 @@ int		size_suite(t_list *lst)
 		}
 		if (size < i)
 			size = i;
-		i = 1;
 		if (tmp)
-		{
 			content = tmp->content;
-			tmp = tmp->next;
-		}
 	}
 	return (size);
 }
 
-int		pos_suite(t_list *lst, int suite_size)
+int	pos_suite(t_list *lst, int suite_size)
 {
 	t_list	*tmp;
 	int		pos;
 	int		i;
 	int		content;
 
-	tmp = lst->next;
+	tmp = lst;
 	content = lst->content;
 	pos = 0;
-	i = 1;
-
 	while (tmp)
 	{
+		tmp = tmp->next;
+		i = 1;
 		while (tmp && tmp->content == content + 1)
 		{
 			i++;
@@ -81,17 +77,13 @@ int		pos_suite(t_list *lst, int suite_size)
 			content++;
 		}
 		pos += i;
-		i = 1;
 		if (tmp)
-		{
 			content = tmp->content;
-			tmp = tmp->next;
-		}
 	}
 	return (pos);
 }
 
-int		lst_content(t_list *lst, int min, int max)
+int	lst_content(t_list *lst, int min, int max)
 {
 	while (lst)
 	{

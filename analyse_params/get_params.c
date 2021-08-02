@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:57:20 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/07/06 17:09:28 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/02 17:48:56 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ t_list	*get_indice(t_list *lst)
 {
 	t_list	*tmp;
 	t_list	*save;
-	int		content;
 	int		i;
 
 	save = lst;
@@ -82,10 +81,9 @@ t_list	*get_indice(t_list *lst)
 	{
 		tmp = save;
 		i = 0;
-		content = lst->content;
 		while (tmp)
 		{
-			if (tmp->content < content)
+			if (tmp->content < lst->content)
 				i++;
 			tmp = tmp->next;
 		}
