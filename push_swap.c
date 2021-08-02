@@ -6,13 +6,13 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 14:24:58 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/02 18:38:15 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/02 19:39:41 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_list	*params;
 	t_stack	stacks;
