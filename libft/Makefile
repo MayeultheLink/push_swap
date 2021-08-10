@@ -6,7 +6,7 @@
 #    By: mde-la-s <mde-la-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/26 15:31:23 by mde-la-s          #+#    #+#              #
-#    Updated: 2021/08/10 15:30:25 by mde-la-s         ###   ########.fr        #
+#    Updated: 2021/08/10 17:54:47 by mde-la-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,4 +66,4 @@ $(NAME)	: ${OBJS}
 	ar rcs ${NAME} ${OBJS}
 
 clean	:
-	rm ${OBJS}
+	rm ${OBJS} libft.a

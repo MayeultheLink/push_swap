@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 14:24:58 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/02 19:39:41 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:55:03 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,20 @@ int	main(int ac, char **av)
 
 void	free_all(t_stack stacks)
 {
-	if (ft_lstsize(stacks.a) > 0)
+	t_list	*tmp;
+
+	while (stacks.a)
 	{
-		while (1)
-		{
-			free(stacks.a);
-			if (!stacks.a->next)
-				break ;
-			stacks.a = stacks.a->next;
-		}
+		tmp = stacks.a;
+		stacks.a = stacks.a->next;
+		free(tmp);
+		tmp = NULL;
 	}
-	if (ft_lstsize(stacks.b) > 0)
+	while (stacks.b)
 	{
-		while (1)
-		{
-			free(stacks.b);
-			if (!stacks.b->next)
-				break ;
-			stacks.b = stacks.b->next;
-		}
-	}	
+		tmp = stacks.b;
+		stacks.b = stacks.b->next;
+		free(tmp);
+		tmp = NULL;
+	}
 }
