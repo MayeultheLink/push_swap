@@ -6,7 +6,7 @@
 #    By: mde-la-s <mde-la-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/26 15:31:23 by mde-la-s          #+#    #+#              #
-#    Updated: 2020/12/18 13:35:57 by mde-la-s         ###   ########.fr        #
+#    Updated: 2021/08/10 15:30:25 by mde-la-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,21 +45,15 @@ SRCS	=	ft_atoi.c \
 		ft_strtrim.c \
 		ft_substr.c \
 		ft_tolower.c \
-		ft_toupper.c
-
-BONUS	=	ft_lstadd_back.c \
+		ft_toupper.c \
+		ft_lstadd_back.c \
 		ft_lstadd_front.c \
-		ft_lstclear.c \
 		ft_lstdelone.c \
-		ft_lstiter.c \
 		ft_lstlast.c \
-		ft_lstmap.c \
 		ft_lstnew.c \
 		ft_lstsize.c
 
 OBJS	=	${SRCS:.c=.o}
-
-OBJSBONUS = 	${BONUS:.c=.o}
 
 CC	=	gcc
 
@@ -71,15 +65,5 @@ $(NAME)	: ${OBJS}
 	${CC} ${CFLAGS} -c ${SRCS}
 	ar rcs ${NAME} ${OBJS}
 
-bonus:	${OBJS} ${OBJSBONUS}
-		ar rcs ${NAME} ${OBJS} ${OBJSBONUS}
-
 clean	:
-	rm -f ${OBJS} ${OBJSBONUS}
-
-fclean	: clean
-	rm -f ${NAME}
-
-re		: fclean all
-
-.PHONY : all clean fclean re
+	rm ${OBJS}

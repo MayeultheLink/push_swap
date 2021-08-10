@@ -6,7 +6,7 @@
 #    By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 15:02:27 by mde-la-s          #+#    #+#              #
-#    Updated: 2021/08/02 19:16:10 by mde-la-s         ###   ########.fr        #
+#    Updated: 2021/08/10 15:51:55 by mde-la-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,15 +38,19 @@ SRCS	=	analyse_params/get_params.c \
 			sorting/sorting_500/sorting_500.c \
 			push_swap.c
 
-OBJS	=	${LIBFT:.c.o} ${SRCS:.c=.o}
+OBJS	=	${SRCS:.c=.o}
 
 CC		=	gcc
 
 CFLAGS	=	-Wall -Wextra -Werror
 
+LIBDIR:=./libft
+
 push_swap	:	${OBJS}
-		${CC} ${CFLAGS} ${LIBFT} ${SRCS}
+		@cd ${LIBDIR} && ${MAKE}
+		${CC} ${CFLAGS} ${SRCS} ${LIBFT}
 		mv a.out push_swap
 
-clean		:
+clean		:	
+		@cd ${LIBDIR} && ${MAKE} clean
 		rm ${OBJS} push_swap
