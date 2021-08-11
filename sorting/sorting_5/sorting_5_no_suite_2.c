@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 17:07:13 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/02 18:35:11 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/11 21:35:09 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,18 @@ t_stack	no_suite_7(t_stack stacks, t_pos pos)
 		stacks = cmd_pb(stacks);
 		stacks = cmd_pb(stacks);
 	}
-	else if (pos.min == 4 && pos.max == 1)
+	else if (pos.max == 3)
 	{
+		if (stacks.a->content > stacks.a->next->content)
+			stacks = cmd_sa(stacks);
+		stacks = cmd_ra(stacks);
+		stacks = cmd_ra(stacks);
 		stacks = cmd_sa(stacks);
-		stacks = cmd_rra(stacks);
-		stacks = cmd_pb(stacks);
-		stacks = cmd_pb(stacks);
+		stacks = cmd_ra(stacks);
+		if (!is_sorted(stacks.a))
+			stacks = cmd_sa(stacks);
 	}
-	else
-		stacks = no_suite_7bis(stacks, pos);
+	stacks = no_suite_7bis(stacks, pos);
 	return (stacks);
 }
 
@@ -92,16 +95,15 @@ t_stack	no_suite_7bis(t_stack stacks, t_pos pos)
 		stacks = cmd_sa(stacks);
 		stacks = cmd_pb(stacks);
 	}
-	else if (pos.max == 3)
+	else if (pos.min == 4 && pos.max == 1)
 	{
-		if (stacks.a->content > stacks.a->next->content)
-			stacks = cmd_sa(stacks);
-		stacks = cmd_ra(stacks);
-		stacks = cmd_ra(stacks);
 		stacks = cmd_sa(stacks);
-		stacks = cmd_ra(stacks);
+		stacks = cmd_rra(stacks);
+		stacks = cmd_pb(stacks);
+		stacks = cmd_pb(stacks);
 	}
-	else
+	else if ((pos.max != 0 && pos.min != 4) && (pos.min != 2 && pos.max != 1)
+		&& pos.max != 3)
 	{
 		stacks = cmd_rra(stacks);
 		stacks = cmd_pb(stacks);

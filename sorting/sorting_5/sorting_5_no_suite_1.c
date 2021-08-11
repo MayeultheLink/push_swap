@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 16:41:10 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/02 18:32:23 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/11 20:25:01 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ t_stack	no_suite_3bis(t_stack stacks, t_pos pos)
 	if (pos.min == 1)
 	{
 		stacks = cmd_pb(stacks);
-		stacks = cmd_ra(stacks);
+		stacks = cmd_rra(stacks);
 	}
 	if (pos.min == 4)
 	{
-		stacks = cmd_ra(stacks);
+		stacks = cmd_rra(stacks);
 		stacks = cmd_pb(stacks);
 	}
 	stacks = cmd_pb(stacks);

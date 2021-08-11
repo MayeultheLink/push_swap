@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:57:20 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/02 19:39:17 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/11 20:09:57 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	param_int(char *p)
 	i = 0;
 	if (p[0] == '-')
 		i++;
-	if (ft_strlen(p) <= 10 || (p[0] == '-' && ft_strlen(p) <= 11))
+	if (ft_strlen(p) <= 9 || (p[0] == '-' && ft_strlen(p) <= 10))
 		return (1);
 	else if ((p[0] != '-' && ft_strlen(p) > 10) || ft_strlen(p) > 11)
 		return (0);
