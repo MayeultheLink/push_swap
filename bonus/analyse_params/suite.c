@@ -6,13 +6,27 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 18:49:06 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/12 01:22:57 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/12 01:33:46 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 int	is_sorted(t_list *lst)
+{
+	t_list	*tmp;
+
+	tmp = lst;
+	while (tmp->next)
+	{
+		if (tmp->content != tmp->next->content - 1)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+int	is_sorted_bonus(t_list *lst)
 {
 	t_list	*tmp;
 
