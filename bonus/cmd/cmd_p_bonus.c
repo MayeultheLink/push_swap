@@ -6,11 +6,11 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:22:36 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/12 01:17:01 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/12 15:33:36 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker.h"
 
 t_stack	cmd_pb_bonus(t_stack stacks)
 {

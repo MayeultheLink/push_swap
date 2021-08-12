@@ -6,11 +6,11 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 17:07:19 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/12 01:11:29 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/12 15:36:12 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker.h"
 
 t_stack	cmd_sa_bonus(t_stack stacks)
 {
@@ -18,7 +18,7 @@ t_stack	cmd_sa_bonus(t_stack stacks)
 
 	if (stacks.b && stacks.b->next
 		&& stacks.b->content < stacks.b->next->content)
-		return (cmd_ss(stacks));
+		return (cmd_ss_bonus(stacks));
 	if (ft_lstsize(stacks.a) > 1)
 	{
 		tmp = stacks.a->next->content;
@@ -34,7 +34,7 @@ t_stack	cmd_sb_bonus(t_stack stacks)
 
 	if (stacks.a && stacks.a->next
 		&& stacks.a->content > stacks.a->next->content)
-		return (cmd_ss(stacks));
+		return (cmd_ss_bonus(stacks));
 	if (ft_lstsize(stacks.b) > 1)
 	{
 		tmp = stacks.b->next->content;

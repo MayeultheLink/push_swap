@@ -6,11 +6,11 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:57:20 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/12 00:44:30 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/12 15:33:07 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker.h"
 
 int	param_int(char *p)
 {
@@ -67,35 +67,6 @@ t_list	*get_params(char **av)
 		i++;
 	}
 	return (params);
-}
-
-t_list	*get_indice(t_list *lst)
-{
-	t_list	*tmp;
-	t_list	*save;
-	int		i;
-
-	save = lst;
-	while (lst)
-	{
-		tmp = save;
-		i = 0;
-		while (tmp)
-		{
-			if (tmp->content < lst->content)
-				i++;
-			tmp = tmp->next;
-		}
-		lst->indice = i;
-		lst = lst->next;
-	}
-	lst = save;
-	while (save)
-	{
-		save->content = save->indice;
-		save = save->next;
-	}
-	return (lst);
 }
 
 int	params_doublon(t_list *params)
