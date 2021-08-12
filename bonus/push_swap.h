@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:19:47 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/12 01:23:58 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/12 01:46:04 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		pos_min(t_list *lst);
 int		pos_min2(t_list *lst);
 int		pos_max(t_list *lst);
 int		is_sorted(t_list *lst);
+int		is_sorted_bonus(t_list *lst);
 int		size_suite(t_list *lst);
 int		pos_suite(t_list *lst, int pos_size);
 int		lst_content(t_list *lst, int min, int max);
@@ -57,6 +58,17 @@ t_list	*cmd_rrab(t_list *lst);
 t_stack	cmd_sa(t_stack stacks);
 t_stack	cmd_sb(t_stack stacks);
 t_stack	cmd_ss(t_stack stacks);
+t_stack	cmd_pb_bonus(t_stack stacks);
+t_stack	cmd_pa_bonus(t_stack stacks);
+t_stack	cmd_ra_bonus(t_stack stacks);
+t_stack	cmd_rb_bonus(t_stack stacks);
+t_stack	cmd_rr_bonus(t_stack stacks);
+t_stack	cmd_rra_bonus(t_stack stacks);
+t_stack	cmd_rrb_bonus(t_stack stacks);
+t_stack	cmd_rrr_bonus(t_stack stacks);
+t_stack	cmd_sa_bonus(t_stack stacks);
+t_stack	cmd_sb_bonus(t_stack stacks);
+t_stack	cmd_ss_bonus(t_stack stacks);
 t_stack	sort_stacksa(t_stack stacks);
 t_stack	sort_3(t_stack stacks);
 t_stack	sort_4(t_stack stacks);
@@ -82,5 +94,8 @@ t_stack	sorting(t_stack stacks);
 t_stack	a2b_until_sorted(t_stack stacks);
 t_stack	sorting_200(t_stack stacks);
 t_stack	sorting_500(t_stack stacks);
+void	checker(t_list *params);
+char	*get_next_line();
+int	gnl(char **line, int i);
 
 #endif

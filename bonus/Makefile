@@ -6,7 +6,7 @@
 #    By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 15:02:27 by mde-la-s          #+#    #+#              #
-#    Updated: 2021/08/12 01:37:33 by mde-la-s         ###   ########.fr        #
+#    Updated: 2021/08/12 01:49:06 by mde-la-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,10 @@ SRCS	:=	analyse_params/get_params.c \
 			cmd/cmd_r.c \
 			cmd/cmd_rr.c \
 			cmd/cmd_s.c \
+			cmd/cmd_p_bonus.c \
+			cmd/cmd_r_bonus.c \
+			cmd/cmd_rr_bonus.c \
+			cmd/cmd_s_bonus.c \
 			sorting/sorting_5/sorting.c \
 			sorting/sorting_5/sorting_3.c \
 			sorting/sorting_5/sorting_4.c \
@@ -33,7 +37,8 @@ SRCS	:=	analyse_params/get_params.c \
 			sorting/sorting_500/sorting.c \
 			sorting/sorting_500/sorting_200.c \
 			sorting/sorting_500/sorting_500.c \
-			push_swap.c
+			push_swap.c \
+			checker.c
 
 OBJS	:=	${SRCS:.c=.o}
 

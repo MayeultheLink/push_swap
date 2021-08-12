@@ -6,16 +6,16 @@
 /*   By: mde-la-s <mde-la-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:31:54 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/12 01:33:58 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/12 02:00:12 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	checker(t_list params)
+void	checker(t_list *params)
 {
-	t_stacks	stacks;
-	char		*cmd;
+	t_stack	stacks;
+	char	*cmd;
 
 	stacks = init_stacks(params);
 	cmd = get_next_line();
@@ -71,9 +71,10 @@ int	gnl(char **line, int i)
 	int    ret;
 
 	ret = read(STDIN_FILENO, &buf, 1);
+	write(1, "F", 1);
 	if (ret == 1 && buf != '\n')
 	{
-		ret = gnl(line, i + 1, fd);
+		ret = gnl(line, i + 1);
 		if (ret != -1)
 			(*line)[i] = buf;
 	}
@@ -92,7 +93,7 @@ char	*get_next_line()
 {
 	char	*line;
 
-	if (gnl(&line, 0))
+	if (gnl(&line, 0) == 1)
 		return (line);
 	return (NULL);
 }
