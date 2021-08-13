@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:19:47 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/12 16:22:44 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/13 12:02:10 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ t_stack	sorting(t_stack stacks);
 t_stack	sorting_s_p(t_stack stacks, char *cmd);
 t_stack	sorting_r(t_stack stacks, char *cmd);
 t_stack	sorting_rr(t_stack stacks, char *cmd);
+void	free_all(t_stack stacks);
 
 #endif
