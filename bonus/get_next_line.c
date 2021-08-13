@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 15:45:31 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/13 12:01:41 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/13 12:34:50 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ char	*get_next_line(void)
 
 	if (gnl(&line, 0) == 1)
 		return (line);
+	free(line);
+	line = NULL;
 	return (NULL);
 }
 
