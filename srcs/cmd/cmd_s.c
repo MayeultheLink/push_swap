@@ -16,7 +16,7 @@ t_stack	cmd_sa(t_stack stacks)
 {
 	int	tmp;
 
-	if (stacks.b && stacks.b->next
+	if (stacks.a && stacks.a->next && stacks.b && stacks.b->next
 		&& stacks.b->content < stacks.b->next->content)
 		return (cmd_ss(stacks));
 	if (ft_lstsize(stacks.a) > 1)
@@ -33,7 +33,7 @@ t_stack	cmd_sb(t_stack stacks)
 {
 	int	tmp;
 
-	if (stacks.a && stacks.a->next
+	if (stacks.b && stacks.b->next && stacks.a && stacks.a->next
 		&& stacks.a->content > stacks.a->next->content)
 		return (cmd_ss(stacks));
 	if (ft_lstsize(stacks.b) > 1)

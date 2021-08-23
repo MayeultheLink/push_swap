@@ -18,12 +18,12 @@ t_stack	cmd_rra(t_stack stacks)
 	int		param2;
 	t_list	*tmp;
 
-	if (stacks.b && stacks.b->next
+	if (stacks.a && stacks.a->next && stacks.b && stacks.b->next
 		&& stacks.b->content < ft_lstlast(stacks.b)->content)
 		return (cmd_rrr(stacks));
-	tmp = stacks.a;
 	if (ft_lstsize(stacks.a) > 1)
 	{
+		tmp = stacks.a;
 		param2 = ft_lstlast(stacks.a)->content;
 		param1 = tmp->next->content;
 		tmp->next->content = tmp->content;
@@ -47,12 +47,12 @@ t_stack	cmd_rrb(t_stack stacks)
 	int		param2;
 	t_list	*tmp;
 
-	if (stacks.a && stacks.a->next
+	if (stacks.b && stacks.b->next && stacks.a && stacks.a->next
 		&& stacks.a->content > ft_lstlast(stacks.a)->content)
 		return (cmd_rrr(stacks));
-	tmp = stacks.b;
 	if (ft_lstsize(stacks.b) > 1)
 	{
+		tmp = stacks.b;
 		param2 = ft_lstlast(stacks.b)->content;
 		param1 = tmp->next->content;
 		tmp->next->content = tmp->content;

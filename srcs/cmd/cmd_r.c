@@ -17,20 +17,20 @@ t_stack	cmd_ra(t_stack stacks)
 	int		param;
 	t_list	*tmp;
 
-	if (stacks.b && stacks.b->next
+	if (stacks.a && stacks.a->next && stacks.b && stacks.b->next
 		&& stacks.b->content < ft_lstlast(stacks.b)->content)
 		return (cmd_rr(stacks));
-	param = stacks.a->content;
-	tmp = stacks.a;
 	if (ft_lstsize(stacks.a) > 1)
 	{
+		param = stacks.a->content;
+		tmp = stacks.a;
 		while (tmp->next)
 		{
 			tmp->content = tmp->next->content;
 			tmp = tmp->next;
 		}
+		tmp->content = param;
 	}
-	tmp->content = param;
 	write(1, "ra\n", 3);
 	return (stacks);
 }
@@ -40,20 +40,20 @@ t_stack	cmd_rb(t_stack stacks)
 	int		param;
 	t_list	*tmp;
 
-	if (stacks.a && stacks.a->next
+	if (stacks.b && stacks.b->next && stacks.a && stacks.a->next
 		&& stacks.a->content > ft_lstlast(stacks.a)->content)
 		return (cmd_rr(stacks));
-	param = stacks.b->content;
-	tmp = stacks.b;
 	if (ft_lstsize(stacks.b) > 1)
 	{
+		param = stacks.b->content;
+		tmp = stacks.b;
 		while (tmp->next)
 		{
 			tmp->content = tmp->next->content;
 			tmp = tmp->next;
 		}
+		tmp->content = param;
 	}
-	tmp->content = param;
 	write(1, "rb\n", 3);
 	return (stacks);
 }

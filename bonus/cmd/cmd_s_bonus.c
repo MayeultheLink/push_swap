@@ -16,7 +16,7 @@ t_stack	cmd_sa_bonus(t_stack stacks)
 {
 	int	tmp;
 
-	if (stacks.b && stacks.b->next
+	if (stacks.a && stacks.a->next && stacks.b && stacks.b->next
 		&& stacks.b->content < stacks.b->next->content)
 		return (cmd_ss_bonus(stacks));
 	if (ft_lstsize(stacks.a) > 1)
@@ -32,7 +32,7 @@ t_stack	cmd_sb_bonus(t_stack stacks)
 {
 	int	tmp;
 
-	if (stacks.a && stacks.a->next
+	if (stacks.b && stacks.b->next && stacks.a && stacks.a->next
 		&& stacks.a->content > stacks.a->next->content)
 		return (cmd_ss_bonus(stacks));
 	if (ft_lstsize(stacks.b) > 1)
