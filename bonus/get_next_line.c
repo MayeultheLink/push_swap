@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 15:45:31 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/13 12:34:50 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/23 10:58:53 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,16 @@ int	gnl(char **line, int i)
 char	*get_next_line(void)
 {
 	char	*line;
+	int		ret;
 
-	if (gnl(&line, 0) == 1)
+	ret = gnl(&line, 0);
+	if (ret == 1)
 		return (line);
-	free(line);
-	line = NULL;
+	if (ret == 0)
+	{
+		free(line);
+		line = NULL;
+	}
 	return (NULL);
 }
 
@@ -64,4 +69,18 @@ void	free_all(t_stack stacks)
 		free(tmp);
 		tmp = NULL;
 	}
+}
+
+t_list	*free_error(t_list *params)
+{
+	t_list	*tmp;
+
+	while (params)
+	{
+		tmp = params;
+		params = params->next;
+		free(tmp);
+		tmp = NULL;
+	}
+	return (NULL);
 }

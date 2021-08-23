@@ -6,14 +6,14 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:19:47 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/13 12:02:10 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/17 18:53:54 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <unistd.h>
 
 typedef struct s_stack
@@ -47,5 +47,6 @@ t_stack	sorting_s_p(t_stack stacks, char *cmd);
 t_stack	sorting_r(t_stack stacks, char *cmd);
 t_stack	sorting_rr(t_stack stacks, char *cmd);
 void	free_all(t_stack stacks);
+t_list	*free_error(t_list *params);
 
 #endif

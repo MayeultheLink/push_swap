@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 14:24:58 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/11 20:53:24 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/17 18:56:37 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int ac, char **av)
 	params = get_params(av);
 	if (!params || !params_doublon(params))
 	{
+		free_error(params);
 		write(1, "Error\n", 6);
 		return (0);
 	}
@@ -57,4 +58,18 @@ void	free_all(t_stack stacks)
 		free(tmp);
 		tmp = NULL;
 	}
+}
+
+t_list	*free_error(t_list *params)
+{
+	t_list	*tmp;
+
+	while (params)
+	{
+		tmp = params;
+		params = params->next;
+		free(tmp);
+		tmp = NULL;
+	}
+	return (NULL);
 }

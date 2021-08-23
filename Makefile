@@ -6,17 +6,17 @@
 #    By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 15:02:27 by mde-la-s          #+#    #+#              #
-#    Updated: 2021/08/11 21:08:54 by mde-la-s         ###   ########.fr        #
+#    Updated: 2021/08/14 23:34:49 by mde-la-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:=	push_swap
+NAME	=	push_swap
 
-LIBFT	:=	libft/*.c
+LIBFT	=	libft/*.c
 
-LIBDIR	:=	./libft
+LIBDIR	=	./libft
 
-SRCS	:=	analyse_params/get_params.c \
+SRCS	=	analyse_params/get_params.c \
 			analyse_params/pos.c \
 			analyse_params/suite.c \
 			cmd/cmd_p.c \
@@ -35,25 +35,27 @@ SRCS	:=	analyse_params/get_params.c \
 			sorting/sorting_500/sorting_500.c \
 			push_swap.c
 
-OBJS	:=	${SRCS:.c=.o}
+BONDIR	=	./bonus
 
-CC		?=	clang
+CC		=	clang
 
-CFLAGS	?=	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror
 
 all		:	${NAME}
 
-$(NAME)	:	${OBJS}
+$(NAME)	:	${OBJS} 
 		@cd ${LIBDIR} && ${MAKE}
 		${CC} ${CFLAGS} ${SRCS} ${LIBFT}
 		mv a.out push_swap
+		@cd ${BONDIR} && ${MAKE}
 
 clean	:	
 		@cd ${LIBDIR} && ${MAKE} clean
+		@cd ${BONDIR} && ${MAKE} clean
 		rm -f ${OBJS}
 
 fclean	:	clean
-		rm -f ${NAME}
+		rm -f ${NAME} checker
 
 re		:	fclean all
 

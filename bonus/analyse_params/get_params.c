@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:57:20 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/12 15:33:07 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/17 18:52:26 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_list	*get_params(char **av)
 			if (av[i][j] == '-')
 				j++;
 			if (!ft_isdigit(av[i][j]) || !param_int(av[i]))
-				return (NULL);
+				return (free_error(params));
 			j++;
 		}
 		tmp = ft_lstnew(ft_atoi(av[i]));

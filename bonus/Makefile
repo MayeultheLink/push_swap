@@ -6,17 +6,17 @@
 #    By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 15:02:27 by mde-la-s          #+#    #+#              #
-#    Updated: 2021/08/12 16:32:30 by mde-la-s         ###   ########.fr        #
+#    Updated: 2021/08/14 23:31:13 by mde-la-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:=	checker
+NAME	=	checker
 
-LIBFT	:=	libft/*.c
+LIBFT	=	libft/*.c
 
-LIBDIR	:=	./libft
+LIBDIR	=	./libft
 
-SRCS	:=	analyse_params/get_params.c \
+SRCS	=	analyse_params/get_params.c \
 			analyse_params/suite.c \
 			cmd/cmd_p_bonus.c \
 			cmd/cmd_r_bonus.c \
@@ -25,18 +25,19 @@ SRCS	:=	analyse_params/get_params.c \
 			get_next_line.c \
 			checker.c
 
-OBJS	:=	${SRCS:.c=.o}
+OBJS	=	${SRCS:.c=.o}
 
-CC		?=	clang
+CC	=	clang
 
-CFLAGS	?=	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror
 
-all		:	${NAME}
+all	:	${NAME}
 
 $(NAME)	:	${OBJS}
 		@cd ${LIBDIR} && ${MAKE}
 		${CC} ${CFLAGS} ${SRCS} ${LIBFT}
 		mv a.out checker
+		mv checker ../
 
 clean	:	
 		@cd ${LIBDIR} && ${MAKE} clean
@@ -45,6 +46,6 @@ clean	:
 fclean	:	clean
 		rm -f ${NAME}
 
-re		:	fclean all
+re	:	fclean all
 
 .PHONY	:	all clean fclean re
