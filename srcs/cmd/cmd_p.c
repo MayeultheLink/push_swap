@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_p_bonus.c                                      :+:      :+:    :+:   */
+/*   cmd_p.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:22:36 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/23 16:57:28 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/23 14:41:30 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
 
-t_stack	cmd_pb_bonus(t_stack stacks)
+t_stack	cmd_pb(t_stack stacks)
 {
 	t_list	*new;
 
@@ -25,10 +25,11 @@ t_stack	cmd_pb_bonus(t_stack stacks)
 		free(new);
 		new = NULL;
 	}
+	write(1, "pb\n", 3);
 	return (stacks);
 }
 
-t_stack	cmd_pa_bonus(t_stack stacks)
+t_stack	cmd_pa(t_stack stacks)
 {
 	t_list	*new;
 
@@ -41,5 +42,6 @@ t_stack	cmd_pa_bonus(t_stack stacks)
 		free(new);
 		new = NULL;
 	}
+	write(1, "pa\n", 3);
 	return (stacks);
 }

@@ -6,7 +6,7 @@
 #    By: mde-la-s <mde-la-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/26 15:31:23 by mde-la-s          #+#    #+#              #
-#    Updated: 2021/08/12 16:33:46 by mde-la-s         ###   ########.fr        #
+#    Updated: 2021/08/23 17:04:41 by mde-la-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,11 +49,8 @@ SRCS	=	ft_atoi.c \
 
 BONUS	=	ft_lstadd_back.c \
 		ft_lstadd_front.c \
-		ft_lstclear.c \
 		ft_lstdelone.c \
-		ft_lstiter.c \
 		ft_lstlast.c \
-		ft_lstmap.c \
 		ft_lstnew.c \
 		ft_lstsize.c
 
@@ -61,7 +58,7 @@ OBJS	=	${SRCS:.c=.o}
 
 OBJSBONUS = 	${BONUS:.c=.o}
 
-CC	=	gcc
+CC	=	clang
 
 CFLAGS	=	-Wall -Wextra -Werror
 
@@ -71,8 +68,9 @@ $(NAME)	: ${OBJS}
 	${CC} ${CFLAGS} -c ${SRCS}
 	ar rcs ${NAME} ${OBJS}
 
-bonus:	${OBJS} ${OBJSBONUS}
-		ar rcs ${NAME} ${OBJS} ${OBJSBONUS}
+bonus:	${OBJSBONUS}
+		${CC} ${CFLAGS} -c ${BONUS}
+		ar rcs ${NAME} ${OBJSBONUS}
 
 clean	:
 	rm -f ${OBJS} ${OBJSBONUS}

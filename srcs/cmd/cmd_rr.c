@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_rr_bonus.c                                     :+:      :+:    :+:   */
+/*   cmd_rr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:19:58 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/23 16:57:41 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/23 14:41:46 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
 
-t_stack	cmd_rra_bonus(t_stack stacks)
+t_stack	cmd_rra(t_stack stacks)
 {
 	int		param1;
 	int		param2;
@@ -20,7 +20,7 @@ t_stack	cmd_rra_bonus(t_stack stacks)
 
 	if (stacks.b && stacks.b->next
 		&& stacks.b->content < ft_lstlast(stacks.b)->content)
-		return (cmd_rrr_bonus(stacks));
+		return (cmd_rrr(stacks));
 	tmp = stacks.a;
 	if (ft_lstsize(stacks.a) > 1)
 	{
@@ -37,10 +37,11 @@ t_stack	cmd_rra_bonus(t_stack stacks)
 			tmp = tmp->next;
 		}
 	}
+	write(1, "rra\n", 4);
 	return (stacks);
 }
 
-t_stack	cmd_rrb_bonus(t_stack stacks)
+t_stack	cmd_rrb(t_stack stacks)
 {
 	int		param1;
 	int		param2;
@@ -48,7 +49,7 @@ t_stack	cmd_rrb_bonus(t_stack stacks)
 
 	if (stacks.a && stacks.a->next
 		&& stacks.a->content > ft_lstlast(stacks.a)->content)
-		return (cmd_rrr_bonus(stacks));
+		return (cmd_rrr(stacks));
 	tmp = stacks.b;
 	if (ft_lstsize(stacks.b) > 1)
 	{
@@ -65,17 +66,19 @@ t_stack	cmd_rrb_bonus(t_stack stacks)
 			tmp = tmp->next;
 		}
 	}
+	write(1, "rrb\n", 4);
 	return (stacks);
 }
 
-t_stack	cmd_rrr_bonus(t_stack stacks)
+t_stack	cmd_rrr(t_stack stacks)
 {
-	stacks.a = cmd_rrab_bonus(stacks.a);
-	stacks.b = cmd_rrab_bonus(stacks.b);
+	stacks.a = cmd_rrab(stacks.a);
+	stacks.b = cmd_rrab(stacks.b);
+	write(1, "rrr\n", 4);
 	return (stacks);
 }
 
-t_list	*cmd_rrab_bonus(t_list *lst)
+t_list	*cmd_rrab(t_list *lst)
 {
 	int		param1;
 	int		param2;
