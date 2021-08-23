@@ -6,7 +6,7 @@
 #    By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 15:02:27 by mde-la-s          #+#    #+#              #
-#    Updated: 2021/08/23 17:15:44 by mde-la-s         ###   ########.fr        #
+#    Updated: 2021/08/23 20:42:15 by mde-la-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,12 +60,14 @@ OBJSBON	=	${BONUS:.c=.o}
 
 all		:	${NAME}
 
-$(NAME)	:	${OBJS} ${OBJSBON}
+$(NAME)	:	${OBJS}
 		${MAKE} -C ./libft
 		${MAKE} bonus -C ./libft
 		@echo "$(_GREEN)LIBFT OK${_END}"
 		${CC} ${CFLAGS} -o $(NAME) ${OBJS} ${LIBFT}
 		@echo "$(_GREEN)MANDATORY OK${_END}"
+
+$(NAMEBON)	:	${OBJSBON}
 		${CC} ${CFLAGS} -o $(NAMEBON) ${OBJSBON} ${LIBFT}
 		@echo "$(_GREEN)BONUS OK${_END}"
 
