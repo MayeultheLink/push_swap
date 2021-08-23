@@ -6,7 +6,7 @@
 #    By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 15:02:27 by mde-la-s          #+#    #+#              #
-#    Updated: 2021/08/23 20:42:15 by mde-la-s         ###   ########.fr        #
+#    Updated: 2021/08/23 20:50:26 by mde-la-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,8 @@ $(NAME)	:	${OBJS}
 		@echo "$(_GREEN)MANDATORY OK${_END}"
 
 $(NAMEBON)	:	${OBJSBON}
+		${MAKE} -C ./libft
+		${MAKE} bonus -C ./libft
 		${CC} ${CFLAGS} -o $(NAMEBON) ${OBJSBON} ${LIBFT}
 		@echo "$(_GREEN)BONUS OK${_END}"
 
