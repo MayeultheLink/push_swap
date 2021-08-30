@@ -14,11 +14,19 @@
 
 int	param_int(char *p)
 {
-	int	param;
+	int		paramint;
+	char	*paramchar;
 	
-	param = ft_atoi(p);
-	if (ft_strcmp(p, ft_itoa(param)))
+	paramint = ft_atoi(p);
+	paramchar = ft_itoa(paramint);
+	if (ft_strcmp(p, paramchar))
+	{
+		free(paramchar);
+		paramchar = NULL;
 		return (1);
+	}
+	free(paramchar);
+	paramchar = NULL;
 	return (0);
 }
 
