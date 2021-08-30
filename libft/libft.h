@@ -6,7 +6,7 @@
 /*   By: mde-la-s <mde-la-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 15:42:40 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/07/06 17:08:05 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/30 14:28:46 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
 char			**ft_split(char const *s, char c);
 char			*ft_strchr(const char *s, int c);
+int				ft_strcmp(char *s1, char *s2);
 char			*ft_strdup(const char *s1);
 char			*ft_strjoin(char const *s1, char const *s2);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);

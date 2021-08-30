@@ -6,7 +6,7 @@
 /*   By: mde-la-s <mde-la-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:31:54 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/17 18:53:16 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/30 14:57:56 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ int	main(int ac, char **av)
 	t_list	*params;
 	t_stack	stacks;
 
-	(void)ac;
-	if (!av[1])
+	if (ac == 1)
 		return (0);
 	params = get_params(av);
-	if (!params || !params_doublon(params))
+	if (params == NULL || !params_doublon(params))
 	{
 		free_error(params);
 		write(1, "Error\n", 6);
@@ -29,9 +28,9 @@ int	main(int ac, char **av)
 	}
 	stacks = init_stacks(params);
 	stacks = sorting(stacks);
-	if (is_sorted_bonus(stacks.a) && !stacks.b)
+	if (stacks.a && is_sorted_bonus(stacks.a) && !stacks.b)
 		write(1, "OK\n", 3);
-	else
+	else if (stacks.a)
 		write(1, "KO\n", 3);
 	free_all(stacks);
 	return (0);
@@ -50,6 +49,15 @@ t_stack	sorting(t_stack stacks)
 			stacks = sorting_r(stacks, cmd);
 		if (cmd[0] == 'r' && cmd[1] == 'r')
 			stacks = sorting_rr(stacks, cmd);
+		if (cmd[0] == 'E' && cmd[1] == 'r')
+		{
+			free_all(stacks);
+			write(1, "Error\n", 6);
+			stacks.a = NULL;
+			free(cmd);
+			cmd = NULL;
+			return (stacks);
+		}
 		free(cmd);
 		cmd = NULL;
 		cmd = get_next_line();
