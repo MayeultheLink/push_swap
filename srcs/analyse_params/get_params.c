@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:57:20 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/30 14:52:35 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/08/30 15:27:06 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	param_int(char *p)
 {
 	int		paramint;
 	char	*paramchar;
-	
+
 	paramint = ft_atoi(p);
 	paramchar = ft_itoa(paramint);
 	if (ft_strcmp(p, paramchar))
