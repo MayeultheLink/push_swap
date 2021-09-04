@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:57:20 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/09/04 19:20:11 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/09/04 19:26:24 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*get_params(int ac, char **av)
 	{
 		av = ft_split(av[1], " ");
 		params = get_params2(av);
-		i = 0;
+		i = 1;
 		while (av && av[i])
 		{
 			free(av[i]);
