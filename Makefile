@@ -6,7 +6,7 @@
 #    By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 15:02:27 by mde-la-s          #+#    #+#              #
-#    Updated: 2021/09/04 17:26:27 by mde-la-s         ###   ########.fr        #
+#    Updated: 2021/09/04 18:57:22 by mde-la-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAMEBON	=	bonus
 
 LIBFT	=	libft/libft.a
 SRCS	=	srcs/analyse_params/get_params.c \
+			srcs/analyse_params/analyse_params.c \
 			srcs/analyse_params/pos.c \
 			srcs/analyse_params/suite.c \
 			srcs/cmd/cmd_p.c \

@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 14:24:58 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/09/04 18:30:50 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/09/04 19:06:31 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ int	main(int ac, char **av)
 
 	if (ac == 1)
 		return (0);
-	if (ac == 2)
-		av = ft_split(av[1], " ");
-	params = get_params(av);
+	params = get_params(ac, av);
 	if (!params || !params_doublon(params))
 	{
 		free_error(params);

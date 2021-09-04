@@ -6,31 +6,37 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:57:20 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/30 15:27:06 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/09/04 19:20:11 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	param_int(char *p)
+t_list	*get_params(int ac, char **av)
 {
-	int		paramint;
-	char	*paramchar;
+	t_list	*params;
+	int		i;
 
-	paramint = ft_atoi(p);
-	paramchar = ft_itoa(paramint);
-	if (ft_strcmp(p, paramchar))
+	params = NULL;
+	i = 1;
+	if (ac == 2)
 	{
-		free(paramchar);
-		paramchar = NULL;
-		return (1);
+		av = ft_split(av[1], " ");
+		params = get_params2(av);
+		i = 0;
+		while (av && av[i])
+		{
+			free(av[i]);
+			i++;
+		}
 	}
-	free(paramchar);
-	paramchar = NULL;
-	return (0);
+	else
+		params = get_params2(av);
+	params = get_indice(params);
+	return (params);
 }
 
-t_list	*get_params(char **av)
+t_list	*get_params2(char **av)
 {
 	t_list	*params;
 	t_list	*tmp;
@@ -38,8 +44,9 @@ t_list	*get_params(char **av)
 	int		j;
 
 	params = NULL;
-	tmp = NULL;
 	i = 1;
+	if (av == NULL)
+		return (NULL);
 	while (av[i] && av[i][0])
 	{
 		j = 0;
@@ -55,7 +62,6 @@ t_list	*get_params(char **av)
 		ft_lstadd_back(&params, tmp);
 		i++;
 	}
-	params = get_indice(params);
 	return (params);
 }
 
@@ -86,28 +92,6 @@ t_list	*get_indice(t_list *lst)
 		save = save->next;
 	}
 	return (lst);
-}
-
-int	params_doublon(t_list *params)
-{
-	t_list	*tmp1;
-	t_list	*tmp2;
-
-	tmp1 = params;
-	while (tmp1->next)
-	{
-		tmp2 = tmp1->next;
-		while (1)
-		{
-			if (tmp1->content == tmp2->content)
-				return (0);
-			if (!tmp2->next)
-				break ;
-			tmp2 = tmp2->next;
-		}
-		tmp1 = tmp1->next;
-	}
-	return (1);
 }
 
 t_stack	init_stacks(t_list *params)
