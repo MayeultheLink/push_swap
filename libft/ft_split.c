@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 19:20:09 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/09/04 18:36:50 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/09/04 19:28:55 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ char	**ft_split(char *str, char *charset)
 	tab = (char **)malloc(sizeof(char *) * (word + 1));
 	if (!tab)
 		return (NULL);
-	tab[0] = NULL;
+//	tab[0] = NULL;
 	ft_fill_tab(str, charset, tab, word);
 	tab[word] = 0;
 	return (tab);
