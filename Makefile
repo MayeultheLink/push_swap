@@ -6,12 +6,12 @@
 #    By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 15:02:27 by mde-la-s          #+#    #+#              #
-#    Updated: 2021/08/23 23:49:23 by mde-la-s         ###   ########.fr        #
+#    Updated: 2021/09/04 17:26:27 by mde-la-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
-NAMEBON	=	checker
+NAMEBON	=	bonus
 
 LIBFT	=	libft/libft.a
 SRCS	=	srcs/analyse_params/get_params.c \
@@ -70,7 +70,7 @@ $(NAME)	:	${OBJS}
 $(NAMEBON)	:	${OBJSBON}
 		${MAKE} -C ./libft
 		${MAKE} bonus -C ./libft
-		${CC} ${CFLAGS} -o $(NAMEBON) ${OBJSBON} ${LIBFT}
+		${CC} ${CFLAGS} -o checker ${OBJSBON} ${LIBFT}
 		@echo "$(_GREEN)CHECKER OK${_END}"
 
 clean	:
@@ -78,7 +78,7 @@ clean	:
 		rm -f ${OBJS} ${OBJSBON}
 
 fclean	:	clean
-		rm -f ${NAME} ${NAMEBON}
+		rm -f ${NAME} checker
 
 re		:	fclean all
 

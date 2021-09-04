@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 14:24:58 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/23 15:07:05 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/09/04 18:30:50 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int ac, char **av)
 
 	if (ac == 1)
 		return (0);
+	if (ac == 2)
+		av = ft_split(av[1], " ");
 	params = get_params(av);
 	if (!params || !params_doublon(params))
 	{
@@ -36,11 +38,10 @@ int	main(int ac, char **av)
 		else
 			stacks = sorting_500(stacks);
 	}
-	free_all(stacks);
-	return (0);
+	return (free_all(stacks));
 }
 
-void	free_all(t_stack stacks)
+int	free_all(t_stack stacks)
 {
 	t_list	*tmp;
 
@@ -58,6 +59,7 @@ void	free_all(t_stack stacks)
 		free(tmp);
 		tmp = NULL;
 	}
+	return (0);
 }
 
 t_list	*free_error(t_list *params)

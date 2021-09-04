@@ -6,7 +6,7 @@
 /*   By: mde-la-s <mde-la-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:31:54 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/30 14:57:56 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/09/04 18:41:00 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int ac, char **av)
 
 	if (ac == 1)
 		return (0);
+	if (ac == 2)
+		av = ft_split(av[1], " ");
 	params = get_params(av);
 	if (params == NULL || !params_doublon(params))
 	{
@@ -45,21 +47,21 @@ t_stack	sorting(t_stack stacks)
 	{
 		if (cmd[0] == 's' || cmd[0] == 'p')
 			stacks = sorting_s_p(stacks, cmd);
-		if (cmd[0] == 'r')
+		else if (cmd[0] == 'r')
 			stacks = sorting_r(stacks, cmd);
-		if (cmd[0] == 'r' && cmd[1] == 'r')
-			stacks = sorting_rr(stacks, cmd);
-		if (cmd[0] == 'E' && cmd[1] == 'r')
+		else
 		{
 			free_all(stacks);
-			write(1, "Error\n", 6);
 			stacks.a = NULL;
+			write(1, "Error\n", 6);
 			free(cmd);
 			cmd = NULL;
 			return (stacks);
 		}
 		free(cmd);
 		cmd = NULL;
+		if (!stacks.a)
+			return (stacks);
 		cmd = get_next_line();
 	}
 	return (stacks);
@@ -67,43 +69,46 @@ t_stack	sorting(t_stack stacks)
 
 t_stack	sorting_s_p(t_stack stacks, char *cmd)
 {
-	if (cmd[0] == 's')
+	if (cmd[0] == 's' && cmd[1] == 'a' && !cmd[2])
+		stacks = cmd_sa_bonus(stacks);
+	else if (cmd[0] == 's' && cmd[1] == 'b' && !cmd[2])
+		stacks = cmd_sb_bonus(stacks);
+	else if (cmd[0] == 's' && cmd[1] == 's' && !cmd[2])
+		stacks = cmd_ss_bonus(stacks);
+	else if (cmd[0] == 'p' && cmd[1] == 'a' && !cmd[2])
+		stacks = cmd_pa_bonus(stacks);
+	else if (cmd[0] == 'p' && cmd[1] == 'b' && !cmd[2])
+		stacks = cmd_pb_bonus(stacks);
+	else
 	{
-		if (cmd[1] == 'a')
-			stacks = cmd_sa_bonus(stacks);
-		else if (cmd[1] == 'b')
-			stacks = cmd_sb_bonus(stacks);
-		else if (cmd[1] == 's')
-			stacks = cmd_ss_bonus(stacks);
-	}
-	if (cmd[0] == 'p')
-	{
-		if (cmd[1] == 'a')
-			stacks = cmd_pa_bonus(stacks);
-		else if (cmd[1] == 'b')
-			stacks = cmd_pb_bonus(stacks);
+		free_all(stacks);
+		stacks.a = NULL;
+		stacks.b = NULL;
+		write(1, "Error\n", 6);
 	}
 	return (stacks);
 }
 
 t_stack	sorting_r(t_stack stacks, char *cmd)
 {
-	if (cmd[1] == 'a')
+	if (cmd[0] == 'r' && cmd[1] == 'a' && !cmd[2])
 		stacks = cmd_ra_bonus(stacks);
-	else if (cmd[1] == 'b')
+	else if (cmd[0] == 'r' && cmd[1] == 'b' && !cmd[2])
 		stacks = cmd_rb_bonus(stacks);
-	else if (cmd[1] == 'r' && !cmd[2])
+	else if (cmd[0] == 'r' && cmd[1] == 'r' && !cmd[2])
 		stacks = cmd_rr_bonus(stacks);
-	return (stacks);
-}
-
-t_stack	sorting_rr(t_stack stacks, char *cmd)
-{
-	if (cmd[2] == 'a')
+	else if (cmd[0] == 'r' && cmd[1] == 'r' && cmd[2] == 'a' && !cmd[3])
 		stacks = cmd_rra_bonus(stacks);
-	else if (cmd[2] == 'b')
+	else if (cmd[0] == 'r' && cmd[1] == 'r' && cmd[2] == 'b' && !cmd[3])
 		stacks = cmd_rrb_bonus(stacks);
-	else if (cmd[2] == 'r')
+	else if (cmd[0] == 'r' && cmd[1] == 'r' && cmd[2] == 'r' && !cmd[3])
 		stacks = cmd_rrr_bonus(stacks);
+	else
+	{
+		free_all(stacks);
+		stacks.a = NULL;
+		stacks.b = NULL;
+		write(1, "Error\n", 6);
+	}
 	return (stacks);
 }

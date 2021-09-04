@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 17:33:39 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/23 15:04:36 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/09/04 17:35:38 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_stack	sorting_200(t_stack stacks)
 	int		size;
 
 	size = ft_lstsize(stacks.a) / 2;
-	while (ft_lstsize(stacks.a) > size)
+	while (ft_lstsize(stacks.a) > size && !is_sorted(stacks.a))
 		stacks = chunks_a2b(stacks, ft_lstsize(stacks.b),
 				ft_lstsize(stacks.b) + size);
 	size /= 2;

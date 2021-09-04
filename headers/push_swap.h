@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:19:47 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/23 15:54:56 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/09/04 18:31:12 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_pos
 	int	suite;
 }				t_pos;
 
-void	free_all(t_stack stacks);
+int		free_all(t_stack stacks);
 t_list	*free_error(t_list *params);
 int		param_int(char *p);
 t_list	*get_params(char **av);
