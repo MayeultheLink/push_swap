@@ -23,11 +23,15 @@ t_list	*get_params(int ac, char **av)
 	{
 		av = ft_split(av[1], " ");
 		params = get_params2(av);
-		i = 1;
-		while (av && av[i])
+		i = 0;
+		if (av)
 		{
-			free(av[i]);
-			i++;
+			while (av[i])
+			{
+				free(av[i]);
+				i++;
+			}
+			free(av);
 		}
 	}
 	else

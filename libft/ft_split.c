@@ -67,7 +67,7 @@ void	ft_fill_tab(char *str, char *charset, char **tab, int word)
 	int	u;
 
 	j = 0;
-	i = 1;
+	i = 0;
 	while (i < word)
 	{
 		while (ft_is_charset(str[j], charset))
@@ -98,11 +98,10 @@ char	**ft_split(char *str, char *charset)
 		tab = NULL;
 		return (NULL);
 	}
-	word = ft_count_word(str, charset) + 1;
+	word = ft_count_word(str, charset);
 	tab = (char **)malloc(sizeof(char *) * (word + 1));
 	if (!tab)
 		return (NULL);
-//	tab[0] = NULL;
 	ft_fill_tab(str, charset, tab, word);
 	tab[word] = 0;
 	return (tab);
