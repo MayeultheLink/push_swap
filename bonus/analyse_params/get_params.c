@@ -82,7 +82,7 @@ t_list	*get_params2(char **av, int i)
 		i++;
 	}
 	if (av[i] && av[i][0] == '\0')
-		return (NULL);
+		return (free_error(params));
 	return (params);
 }
 
