@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:57:20 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/09/06 13:59:42 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/09/06 15:17:12 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ t_list	*get_params2(char **av, int i)
 		ft_lstadd_back(&params, tmp);
 		i++;
 	}
+	if (av[i] && av[i][0] == '\0')
+		return (NULL);
 	return (params);
 }
 
