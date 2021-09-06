@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:19:47 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/17 18:53:54 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/09/06 13:59:55 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ typedef struct s_stack
 }				t_stack;
 
 int		param_int(char *p);
-t_list	*get_params(char **av);
+t_list	*get_params(int ac, char **av);
+t_list	*get_params2(char **av, int i);
 int		params_doublon(t_list *params);
 t_stack	init_stacks(t_list *params);
 int		is_sorted_bonus(t_list *lst);
