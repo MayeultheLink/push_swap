@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:57:20 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/09/06 13:41:05 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/09/06 15:07:44 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ t_list	*get_params(int ac, char **av)
 	int		i;
 
 	params = NULL;
-	i = 1;
 	if (ac == 2)
 	{
+		if (av[1][0] == '\0')
+			return (params = ft_lstnew(0));
 		av = ft_split(av[1], " ");
 		params = get_params2(av, 0);
 		i = 0;
@@ -63,6 +64,8 @@ t_list	*get_params2(char **av, int i)
 		tmp = ft_lstnew(ft_atoi(av[i]));
 		ft_lstadd_back(&params, tmp);
 		i++;
+		while (av[i] && av[i][0] == '\0')
+			i++;
 	}
 	return (params);
 }
