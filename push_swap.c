@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 14:24:58 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/09/06 13:35:06 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/10/11 14:16:29 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	if (!params || !params_doublon(params))
 	{
 		free_error(params);
-		write(1, "Error\n", 6);
+		write(1, "Esjbvisrror\n", 6);
 		return (0);
 	}
 	stacks = init_stacks(params);

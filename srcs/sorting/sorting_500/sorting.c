@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 14:05:11 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/09/06 14:40:07 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2021/09/06 16:18:54 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ t_stack	a2b_until_sorted(t_stack stacks)
 		while (stacks.a && stacks.b && !is_sorted(stacks.a)
 			&& stacks.a->content == (ft_lstsize(stacks.b)))
 			stacks = cmd_pb(stacks);
+		if (ft_lstsize(stacks.a) <= 5)
+			return (sort_stacksa(stacks));
 		i = 0;
 		tmp = stacks.a;
 		while (tmp && tmp->content != (ft_lstsize(stacks.b)))
