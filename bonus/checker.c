@@ -6,7 +6,7 @@
 /*   By: mde-la-s <mde-la-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:31:54 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/09/04 19:52:06 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2023/12/03 15:56:14 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,21 @@ int	main(int ac, char **av)
 	}
 	stacks = init_stacks(params);
 	stacks = sorting(stacks);
+
+/*      while (stacks.a)
+         {
+                 printf("a : %d\n", stacks.a->content);
+                 stacks.a = stacks.a->next;
+         }
+         while (stacks.b)
+         {
+                 printf("b : %d\n", stacks.b->content);
+                 stacks.b = stacks.b->next;
+         }
+*/
 	if (stacks.a && is_sorted_bonus(stacks.a) && !stacks.b)
 		write(1, "OK\n", 3);
-	else if (stacks.a)
+	else
 		write(1, "KO\n", 3);
 	free_all(stacks);
 	return (0);
@@ -39,10 +51,11 @@ int	main(int ac, char **av)
 t_stack	sorting(t_stack stacks)
 {
 	char	*cmd;
-
+int i = 0;
 	cmd = get_next_line();
 	while (cmd)
 	{
+printf("cmd %d = %s\n", ++i, cmd);
 		if (cmd[0] == 's' || cmd[0] == 'p')
 			stacks = sorting_s_p(stacks, cmd);
 		else if (cmd[0] == 'r')

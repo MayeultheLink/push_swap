@@ -6,7 +6,7 @@
 #    By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 15:02:27 by mde-la-s          #+#    #+#              #
-#    Updated: 2021/09/04 18:57:22 by mde-la-s         ###   ########.fr        #
+#    Updated: 2023/12/03 17:57:21 by mde-la-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,11 @@ SRCS	=	srcs/analyse_params/get_params.c \
 			srcs/cmd/cmd_r.c \
 			srcs/cmd/cmd_rr.c \
 			srcs/cmd/cmd_s.c \
+			srcs/sorting/bubble_sort.c \
+			srcs/sorting/insertion_sort.c \
+			srcs/sorting/selection_sort.c \
+			srcs/sorting/merge_sort.c \
+			srcs/sorting/quick_sort.c \
 			srcs/sorting/sorting_5/sorting.c \
 			srcs/sorting/sorting_5/sorting_3.c \
 			srcs/sorting/sorting_5/sorting_4.c \

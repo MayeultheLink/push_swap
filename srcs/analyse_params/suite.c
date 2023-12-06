@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 18:49:06 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/08/23 14:41:17 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2023/12/02 23:41:52 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,23 @@ int	is_sorted(t_list *lst)
 	t_list	*tmp;
 
 	tmp = lst;
-	while (tmp->next)
+	while (tmp && tmp->next)
 	{
 		if (tmp->content != tmp->next->content - 1)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+int	is_reverse_sorted(t_list *lst)
+{
+	t_list	*tmp;
+
+	tmp = lst;
+	while (tmp && tmp->next)
+	{
+		if (tmp->content < tmp->next->content)
 			return (0);
 		tmp = tmp->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 14:24:58 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/10/11 14:16:29 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2023/12/03 18:16:47 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,38 @@ int	main(int ac, char **av)
 	if (!params || !params_doublon(params))
 	{
 		free_error(params);
-		write(1, "Esjbvisrror\n", 6);
+		write(1, "Error\n", 6);
 		return (0);
 	}
 	stacks = init_stacks(params);
+
 	if (!is_sorted(params))
 	{
-		if (ft_lstsize(stacks.a) <= 5)
-			stacks = sort_stacksa(stacks);
-		else if (ft_lstsize(stacks.a) <= 200)
-			stacks = sorting_200(stacks);
-		else
-			stacks = sorting_500(stacks);
+//		stacks = bubble_sort(stacks);
+//		stacks = insertion_sort(stacks);
+//		stacks = selection_sort(stacks);
+		stacks = quick_sort(stacks);
+
+//		if (ft_lstsize(stacks.a) <= 5)
+//			stacks = sort_stacksa(stacks);
+//		else if (ft_lstsize(stacks.a) <= 200)
+//			stacks = sorting_200(stacks);
+//		else
+//			stacks = sorting_500(stacks);
 	}
+
+	while (stacks.a)
+	{
+		printf("a : %d\n", stacks.a->content);
+		stacks.a = stacks.a->next;
+	}
+	while (stacks.b)
+	{
+		printf("b : %d\n", stacks.b->content);
+		stacks.b = stacks.b->next;
+	}
+
+
 	return (free_all(stacks));
 }
 

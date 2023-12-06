@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:19:47 by mde-la-s          #+#    #+#             */
-/*   Updated: 2021/09/06 13:41:16 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2023/12/03 17:57:11 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int		pos_min(t_list *lst);
 int		pos_min2(t_list *lst);
 int		pos_max(t_list *lst);
 int		is_sorted(t_list *lst);
+int		is_reverse_sorted(t_list *lst);
 int		size_suite(t_list *lst);
 int		pos_suite(t_list *lst, int pos_size);
 int		lst_content(t_list *lst, int min, int max);
@@ -83,5 +84,10 @@ t_stack	sorting(t_stack stacks);
 t_stack	a2b_until_sorted(t_stack stacks);
 t_stack	sorting_200(t_stack stacks);
 t_stack	sorting_500(t_stack stacks);
+t_stack bubble_sort(t_stack stacks);
+t_stack insertion_sort(t_stack stacks);
+t_stack selection_sort(t_stack stacks);
+t_stack merge_sort(t_stack stacks);
+t_stack quick_sort(t_stack stacks);
 
 #endif
