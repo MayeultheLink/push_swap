@@ -6,7 +6,7 @@
 /*   By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:19:47 by mde-la-s          #+#    #+#             */
-/*   Updated: 2023/12/03 17:57:11 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2023/12/12 11:57:26 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ void selection_sort(t_stacks* stacks);
 void merge_sort(t_stacks* stacks);
 void quick_sort(t_stacks* stacks);
 void radix_sort(t_stacks* stacks);
-void my_sort(t_stacks* stacks);
 void rotate_to_find_value_in_a(t_stacks* stacks, int value);
 void rotate_to_find_value_in_b(t_stacks* stacks, int value);
 int min_value(t_list* stack);

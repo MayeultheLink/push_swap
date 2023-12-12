@@ -6,7 +6,7 @@
 #    By: mde-la-s <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 15:02:27 by mde-la-s          #+#    #+#              #
-#    Updated: 2023/12/03 17:57:21 by mde-la-s         ###   ########.fr        #
+#    Updated: 2023/12/12 11:57:12 by mde-la-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ SRCS	=	srcs/analyse_params/get_params.c \
 			srcs/sorting/merge_sort.c \
 			srcs/sorting/quick_sort.c \
 			srcs/sorting/selection_sort.c \
-			srcs/sorting/my_sort.c \
 			srcs/sorting/radix_sort.c \
 			srcs/cmd/find_rotation.c \
 			srcs/analyse_params/min_max_values.c \
