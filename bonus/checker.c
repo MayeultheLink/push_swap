@@ -6,7 +6,7 @@
 /*   By: mde-la-s <mde-la-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:31:54 by mde-la-s          #+#    #+#             */
-/*   Updated: 2023/12/03 15:56:14 by mde-la-s         ###   ########.fr       */
+/*   Updated: 2023/12/12 11:51:17 by mde-la-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int ac, char **av)
 {
 	t_list	*params;
-	t_stack	stacks;
+	t_stacks	stacks;
 
 	if (ac == 1)
 		return (0);
@@ -48,14 +48,12 @@ int	main(int ac, char **av)
 	return (0);
 }
 
-t_stack	sorting(t_stack stacks)
+t_stacks	sorting(t_stacks stacks)
 {
 	char	*cmd;
-int i = 0;
 	cmd = get_next_line();
 	while (cmd)
 	{
-printf("cmd %d = %s\n", ++i, cmd);
 		if (cmd[0] == 's' || cmd[0] == 'p')
 			stacks = sorting_s_p(stacks, cmd);
 		else if (cmd[0] == 'r')
@@ -78,7 +76,7 @@ printf("cmd %d = %s\n", ++i, cmd);
 	return (stacks);
 }
 
-t_stack	sorting_s_p(t_stack stacks, char *cmd)
+t_stacks	sorting_s_p(t_stacks stacks, char *cmd)
 {
 	if (cmd[0] == 's' && cmd[1] == 'a' && !cmd[2])
 		stacks = cmd_sa_bonus(stacks);
@@ -100,7 +98,7 @@ t_stack	sorting_s_p(t_stack stacks, char *cmd)
 	return (stacks);
 }
 
-t_stack	sorting_r(t_stack stacks, char *cmd)
+t_stacks	sorting_r(t_stacks stacks, char *cmd)
 {
 	if (cmd[0] == 'r' && cmd[1] == 'a' && !cmd[2])
 		stacks = cmd_ra_bonus(stacks);

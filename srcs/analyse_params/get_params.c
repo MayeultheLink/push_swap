@@ -12,96 +12,119 @@
 
 #include "push_swap.h"
 
-t_list	*get_params(int ac, char **av)
+t_list* duplicate_list(t_list* list)
 {
-	t_list	*params;
-	int		i;
+	t_list* new_list = NULL;
+	t_list* tmp = NULL;
 
-	params = NULL;
-	if (ac == 2)
+	while (list)
 	{
-		av = ft_split(av[1], " ");
-		params = get_params2(av, 0);
-		i = 0;
-		if (av)
-		{
-			while (av[i])
-			{
-				free(av[i]);
-				i++;
-			}
-			free(av);
-		}
+		tmp = ft_lstnew(list->content);
+		ft_lstadd_back(&new_list, tmp);
+		list = list->next;
 	}
+
+	return (new_list);
+}
+
+void free_list(t_list* list)
+{
+	t_list* tmp;
+	while (list)
+	{
+		tmp = list;
+		list = list->next;
+		free(tmp);
+	}
+}
+
+void replace_content_with_index(t_list* list)
+{
+	t_list* index = duplicate_list(list);
+	t_list* save_index = index;
+	t_list* save_list = list;
+	int i = 0;
+
+	while (index)
+	{
+		list = save_list;
+		while (list)
+		{
+			if (index->content > list->content)
+				i++;
+			list = list->next;
+		}
+		index->content = i;
+		i = 0;
+		index = index->next;
+	}
+
+	list = save_list;
+	index = save_index;
+	while (index)
+	{
+		list->content = index->content;
+		list = list->next;
+		index = index->next;
+	}
+
+	free_list(save_index);
+}
+
+char** duplicate_params(char** av)
+{	
+	char** params;
+	int nbr_of_params = ft_tab_of_str_len(av) - 1;
+
+	if (nbr_of_params == 1)
+		params = ft_split(av[1], " ");
 	else
-		params = get_params2(av, 1);
-	params = get_indice(params);
+	{
+		params = (char**)malloc((sizeof(char*)) * (nbr_of_params + 1));
+		if (!params)
+			return (NULL);
+		params[nbr_of_params] = NULL;
+		for (int i = 0; i < nbr_of_params; i++)
+		{
+			params[i] = ft_strdup(av[i + 1]);
+			if (!params[i])
+			{
+				ft_free_double_ptr(params);
+				return (NULL);
+			}
+		}
+	}
+
 	return (params);
 }
 
-t_list	*get_params2(char **av, int i)
+t_list *get_params(char **av)
 {
-	t_list	*params;
-	t_list	*tmp;
-	int		j;
+	char** params = duplicate_params(av);
+	char* itoa;
 
-	params = NULL;
-	if (av == NULL)
-		return (NULL);
-	while (av[i] && av[i][0])
+	t_list* stack = NULL;
+	t_list* tmp = NULL;
+	for (int i = 0; i < ft_tab_of_str_len(params); i++)
 	{
-		j = 0;
-		while (av[i][j])
+		itoa = ft_itoa(ft_atoi(params[i]));
+		if (!ft_strncmp(params[i], itoa, ft_strlen(params[i])))
 		{
-			if (av[i][j] == '-')
-				j++;
-			if (!ft_isdigit(av[i][j]) || !param_int(av[i]))
-				return (free_error(params));
-			j++;
+			tmp = ft_lstnew(ft_atoi(params[i]));
+			ft_lstadd_back(&stack, tmp);
 		}
-		tmp = ft_lstnew(ft_atoi(av[i]));
-		ft_lstadd_back(&params, tmp);
-		i++;
-		if (av[i] && av[i][0] == '\0')
-			return (free_error(params));
-	}
-	return (params);
-}
-
-t_list	*get_indice(t_list *lst)
-{
-	t_list	*tmp;
-	t_list	*save;
-	int		i;
-
-	save = lst;
-	while (lst)
-	{
-		tmp = save;
-		i = 0;
-		while (tmp)
+		else
 		{
-			if (tmp->content < lst->content)
-				i++;
-			tmp = tmp->next;
+			free(itoa);
+			ft_free_double_ptr(params);
+			return (NULL);
 		}
-		lst->indice = i;
-		lst = lst->next;
+		free(itoa);
 	}
-	lst = save;
-	while (save)
-	{
-		save->content = save->indice;
-		save = save->next;
-	}
-	return (lst);
-}
+	ft_free_double_ptr(params);
 
-t_stack	init_stacks(t_list *params)
-{
-	t_stack	stacks;
+	replace_content_with_index(stack);
 
-	stacks.a = params;
-	stacks.b = NULL;
-	return (stacks);
+	return (stack);
+
 }

@@ -12,23 +12,22 @@
 
 #include "push_swap.h"
 
-t_stack	sorting_200(t_stack stacks)
+void	sorting_200(t_stacks* stacks)
 {
 	int		size;
 
-	size = ft_lstsize(stacks.a) / 2;
-	while (ft_lstsize(stacks.a) > size && !is_sorted(stacks.a))
-		stacks = chunks_a2b(stacks, ft_lstsize(stacks.b),
-				ft_lstsize(stacks.b) + size);
+	size = ft_lstsize(stacks->a) / 2;
+	while (ft_lstsize(stacks->a) > size && !is_sorted(stacks->a))
+		chunks_a2b(stacks, ft_lstsize(stacks->b), ft_lstsize(stacks->b) + size);
+
 	size /= 2;
-	while (ft_lstsize(stacks.b) > size)
-		stacks = chunks_b2a(stacks, ft_lstsize(stacks.b) - size,
-				ft_lstsize(stacks.b));
+	while (ft_lstsize(stacks->b) > size)
+		chunks_b2a(stacks, ft_lstsize(stacks->b) - size, ft_lstsize(stacks->b));
+
 	size = 10;
-	while (ft_lstsize(stacks.a) > size)
-		stacks = chunks_a2b(stacks, ft_lstsize(stacks.b),
-				ft_lstsize(stacks.b) + size);
-	stacks = a2b_until_sorted(stacks);
-	stacks = sorting(stacks);
-	return (stacks);
+	while (ft_lstsize(stacks->a) > size)
+		chunks_a2b(stacks, ft_lstsize(stacks->b), ft_lstsize(stacks->b) + size);
+
+	a2b_until_sorted(stacks);
+	sorting(stacks);
 }

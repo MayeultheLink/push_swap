@@ -15,6 +15,7 @@ NAME	=	libft.a
 SRCS	=	ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
+		ft_free_double_ptr.c \
 		ft_isalnum.c \
 		ft_isalpha.c \
 		ft_isascii.c \
@@ -45,6 +46,7 @@ SRCS	=	ft_atoi.c \
 		ft_strrchr.c \
 		ft_strtrim.c \
 		ft_substr.c \
+		ft_tab_of_str_len.c \
 		ft_tolower.c \
 		ft_toupper.c
 
@@ -53,6 +55,7 @@ BONUS	=	ft_lstadd_back.c \
 		ft_lstdelone.c \
 		ft_lstlast.c \
 		ft_lstnew.c \
+		ft_lstfree.c \
 		ft_lstsize.c
 
 OBJS	=	${SRCS:.c=.o}

@@ -12,7 +12,7 @@
 
 #include "checker.h"
 
-t_stack	cmd_ra_bonus(t_stack stacks)
+t_stacks	cmd_ra_bonus(t_stacks stacks)
 {
 	int		param;
 	t_list	*tmp;
@@ -34,7 +34,7 @@ t_stack	cmd_ra_bonus(t_stack stacks)
 	return (stacks);
 }
 
-t_stack	cmd_rb_bonus(t_stack stacks)
+t_stacks	cmd_rb_bonus(t_stacks stacks)
 {
 	int		param;
 	t_list	*tmp;
@@ -56,7 +56,7 @@ t_stack	cmd_rb_bonus(t_stack stacks)
 	return (stacks);
 }
 
-t_stack	cmd_rr_bonus(t_stack stacks)
+t_stacks	cmd_rr_bonus(t_stacks stacks)
 {
 	stacks.a = cmd_r_bonus(stacks.a);
 	stacks.b = cmd_r_bonus(stacks.b);

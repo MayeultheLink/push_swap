@@ -51,7 +51,7 @@ char	*get_next_line(void)
 	return (NULL);
 }
 
-void	free_all(t_stack stacks)
+void	free_all(t_stacks stacks)
 {
 	t_list	*tmp;
 

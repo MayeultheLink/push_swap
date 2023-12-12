@@ -1,22 +1,19 @@
 #include "push_swap.h"
 
-t_stack insertion_sort(t_stack stacks)
+void insertion_sort(t_stacks* stacks)
 {
-
-	while (stacks.a)
+	while (stacks->a)
 	{
-		while (stacks.b && stacks.a->content < stacks.b->content)
+		while (stacks->b && stacks->a->content < stacks->b->content)
 		{
-			stacks = cmd_pa(stacks);
-			stacks = cmd_sa(stacks);
+			cmd_pa(stacks);
+			cmd_sa(stacks);
 		}
-		stacks = cmd_pb(stacks);
+		cmd_pb(stacks);
 	}
 
-	while (stacks.b)
+	while (stacks->b)
 	{
-		stacks = cmd_pa(stacks);
+		cmd_pa(stacks);
 	}
-
-	return (stacks);
 }

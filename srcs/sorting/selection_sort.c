@@ -13,16 +13,13 @@ int min_value_in_stack(t_list* stack)
 	return min;
 }
 
-t_stack selection_sort(t_stack stacks)
+void selection_sort(t_stacks* stacks)
 {
-	while (stacks.a)
+	while (stacks->a)
 	{
-		int min = min_value_in_stack(stacks.a);
-		while (stacks.a && stacks.a->content != min)
-			stacks = cmd_ra(stacks);
-		stacks = cmd_pb(stacks);
+		rotate_to_find_value_in_a(stacks, min_value_in_stack(stacks->a));
+		cmd_pb(stacks);
 	}
-	while (stacks.b)
-		stacks = cmd_pa(stacks);
-	return stacks;
+	while (stacks->b)
+		cmd_pa(stacks);
 }

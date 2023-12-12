@@ -1,70 +1,62 @@
 #include "push_swap.h"
 
-int min_value(t_list* stack)
+void divide_b2a(t_stacks* stacks)
 {
-	if (!stack)
-		return 0;
-	int min = stack->content;
-	while (stack)
-	{
-		if (min > stack->content)
-			min = stack->content;
-		stack = stack->next;
-	}
-	return min;
-}
+	if (!stacks->b || !stacks->b->next)
+		return ;
 
-int max_value(t_list* stack)
-{
-	if (!stack)
-		return 0;
-	int max = stack->content;
-	while (stack)
+	int size = ft_lstsize(stacks->b);
+	while (ft_lstsize(stacks->b) > size / 2)
 	{
-		if (max < stack->content)
-			max = stack->content;
-		stack = stack->next;
-	}
-	return max;
-}
-
-t_stack divide_a2b(t_stack stacks)
-{
-	if (!stacks.a || !stacks.a->next)
-		return stacks;
-	int size = ft_lstsize(stacks.a);
-	while (ft_lstsize(stacks.a) > size / 2)
-	{
-		if (stacks.a->content <= (max_value(stacks.a) - min_value(stacks.a) / 2 + min_value(stacks.a)))
-			stacks = cmd_pb(stacks);
+		if (stacks->b->content > ((max_value(stacks->b) - min_value(stacks->b)) / 2 + min_value(stacks->b)))
+			cmd_pa(stacks);
 		else
-			stacks = cmd_ra(stacks);
+			cmd_rb(stacks);
 	}
-	return divide_a2b(stacks);
+	divide_b2a(stacks);
 }
 
-t_stack divide_b2a(t_stack stacks)
+void divide_a2b(t_stacks* stacks)
 {
-	if (!stacks.b || !stacks.b->next)
-		return stacks;
-	int size = ft_lstsize(stacks.b);
-	while (ft_lstsize(stacks.b) > size / 2)
+	if (!stacks->a || !stacks->a->next)
+		return ;
+
+	int size = ft_lstsize(stacks->a);
+	while (ft_lstsize(stacks->a) > size / 2)
 	{
-		if (stacks.b->content <= (max_value(stacks.b) - min_value(stacks.b) / 2 + min_value(stacks.b)))
-			stacks = cmd_pa(stacks);
+		if (stacks->a->content <= ((max_value(stacks->a) - min_value(stacks->a)) / 2 + min_value(stacks->a)))
+			cmd_pb(stacks);
 		else
-			stacks = cmd_rb(stacks);
+			cmd_ra(stacks);
 	}
-	return divide_b2a(stacks);
+	divide_a2b(stacks);
 }
 
-t_stack merge_sort(t_stack stacks)
+void merge_in_b_with_selection_sort(t_stacks* stacks)
 {
-	if (!stacks.a || !stacks.a->next)
-		return stacks;
+	while (!is_sorted(stacks->a))
+	{
+		rotate_to_find_value_in_a(stacks, min_value(stacks->a));
+		cmd_pb(stacks);
+	}
+}
 
-	stacks = divide_a2b(stacks);
-	stacks = divide_b2a(stacks);
+void merge_in_a_with_selection_sort(t_stacks* stacks)
+{
+	while (ft_lstsize(stacks->b) > ft_lstsize(stacks->a))
+	{
+		rotate_to_find_value_in_b(stacks, stacks->a->content - 1);
+		cmd_pa(stacks);
+	}
+}
 
-	return stacks;
+void merge_sort(t_stacks* stacks)
+{
+	divide_a2b(stacks);
+	merge_in_a_with_selection_sort(stacks);
+	divide_b2a(stacks);
+	merge_in_b_with_selection_sort(stacks);
+
+	while (stacks->b)
+		cmd_pa(stacks);
 }

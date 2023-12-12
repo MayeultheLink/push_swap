@@ -12,123 +12,117 @@
 
 #include "push_swap.h"
 
-t_stack	no_suite_5(t_stack stacks, t_pos pos)
+void	no_suite_5(t_stacks* stacks, t_pos pos)
 {
 	if (pos.min == 0 && pos.max == 1)
 	{
-		stacks = cmd_pb(stacks);
-		stacks = cmd_pb(stacks);
+		cmd_pb(stacks);
+		cmd_pb(stacks);
 	}
 	else if (pos.min == 0 && pos.max == 4)
 	{
-		stacks = cmd_pb(stacks);
-		stacks = cmd_rra(stacks);
-		stacks = cmd_pb(stacks);
+		cmd_pb(stacks);
+		cmd_rra(stacks);
+		cmd_pb(stacks);
 	}
 	else
 	{
-		stacks = cmd_pb(stacks);
-		stacks = cmd_rra(stacks);
-		stacks = cmd_rra(stacks);
-		stacks = cmd_pb(stacks);
+		cmd_pb(stacks);
+		cmd_rra(stacks);
+		cmd_rra(stacks);
+		cmd_pb(stacks);
 	}
-	return (stacks);
 }
 
-t_stack	no_suite_6(t_stack stacks, t_pos pos)
+void	no_suite_6(t_stacks* stacks, t_pos pos)
 {
 	if (pos.min == 1 && pos.max == 0)
 	{
-		stacks = cmd_pb(stacks);
-		stacks = cmd_pb(stacks);
+		cmd_pb(stacks);
+		cmd_pb(stacks);
 	}
 	else if (pos.min == 1 && pos.max == 2)
 	{
-		stacks = cmd_ra(stacks);
-		stacks = cmd_pb(stacks);
-		stacks = cmd_pb(stacks);
+		cmd_ra(stacks);
+		cmd_pb(stacks);
+		cmd_pb(stacks);
 	}
 	else
 	{
-		stacks = cmd_ra(stacks);
-		stacks = cmd_pb(stacks);
-		stacks = cmd_ra(stacks);
-		stacks = cmd_pb(stacks);
+		cmd_ra(stacks);
+		cmd_pb(stacks);
+		cmd_ra(stacks);
+		cmd_pb(stacks);
 	}
-	return (stacks);
 }
 
-t_stack	no_suite_7(t_stack stacks, t_pos pos)
+void	no_suite_7(t_stacks* stacks, t_pos pos)
 {
 	if (pos.min == 4 && pos.max == 0)
 	{
-		stacks = cmd_pb(stacks);
-		stacks = cmd_rra(stacks);
-		stacks = cmd_pb(stacks);
+		cmd_pb(stacks);
+		cmd_rra(stacks);
+		cmd_pb(stacks);
 	}
 	else if (pos.min == 2 && pos.max == 1)
 	{
-		stacks = cmd_ra(stacks);
-		stacks = cmd_pb(stacks);
-		stacks = cmd_pb(stacks);
+		cmd_ra(stacks);
+		cmd_pb(stacks);
+		cmd_pb(stacks);
 	}
 	else if (pos.max == 3)
 	{
-		if (stacks.a->content > stacks.a->next->content)
-			stacks = cmd_sa(stacks);
-		stacks = cmd_ra(stacks);
-		stacks = cmd_ra(stacks);
-		stacks = cmd_sa(stacks);
-		stacks = cmd_ra(stacks);
-		if (!is_sorted(stacks.a))
-			stacks = cmd_sa(stacks);
+		if (stacks->a->content > stacks->a->next->content)
+			cmd_sa(stacks);
+		cmd_ra(stacks);
+		cmd_ra(stacks);
+		cmd_sa(stacks);
+		cmd_ra(stacks);
+		if (!is_sorted(stacks->a))
+			cmd_sa(stacks);
 	}
-	stacks = no_suite_7bis(stacks, pos);
-	return (stacks);
+	no_suite_7bis(stacks, pos);
 }
 
-t_stack	no_suite_7bis(t_stack stacks, t_pos pos)
+void	no_suite_7bis(t_stacks* stacks, t_pos pos)
 {
 	if (pos.min == 2 && pos.max == 0)
 	{
-		stacks = cmd_pb(stacks);
-		stacks = cmd_sa(stacks);
-		stacks = cmd_pb(stacks);
+		cmd_pb(stacks);
+		cmd_sa(stacks);
+		cmd_pb(stacks);
 	}
 	else if (pos.min == 4 && pos.max == 1)
 	{
-		stacks = cmd_sa(stacks);
-		stacks = cmd_rra(stacks);
-		stacks = cmd_pb(stacks);
-		stacks = cmd_pb(stacks);
+		cmd_sa(stacks);
+		cmd_rra(stacks);
+		cmd_pb(stacks);
+		cmd_pb(stacks);
 	}
-	else if ((pos.max != 0 && pos.min != 4) && (pos.min != 2 && pos.max != 1)
-		&& pos.max != 3)
+	else if ((pos.max != 0 && pos.min != 4) && (pos.min != 2 && pos.max != 1) && pos.max != 3)
 	{
-		stacks = cmd_rra(stacks);
-		stacks = cmd_pb(stacks);
-		stacks = cmd_rra(stacks);
-		stacks = cmd_rra(stacks);
-		stacks = cmd_pa(stacks);
+		cmd_rra(stacks);
+		cmd_pb(stacks);
+		cmd_rra(stacks);
+		cmd_rra(stacks);
+		cmd_pa(stacks);
 	}
-	return (stacks);
 }
 
-t_stack	no_suite_8(t_stack stacks)
+void	no_suite_8(t_stacks* stacks)
 {
-	if (is_sorted(stacks.a) && ft_lstsize(stacks.a) == 5)
-		return (stacks);
-	if (ft_lstsize(stacks.a) == 3)
-		stacks = sort_3(stacks);
-	if (stacks.b && stacks.b->next
-		&& stacks.b->content < stacks.b->next->content)
-		stacks = cmd_sb(stacks);
-	if (ft_lstsize(stacks.a) == 3)
+	if (is_sorted(stacks->a) && ft_lstsize(stacks->a) == 5)
+		return ;
+	if (ft_lstsize(stacks->a) == 3)
+		sort_3(stacks);
+	if (stacks->b && stacks->b->next
+		&& stacks->b->content < stacks->b->next->content)
+		cmd_sb(stacks);
+	if (ft_lstsize(stacks->a) == 3)
 	{
-		stacks = cmd_pa(stacks);
-		if (stacks.a->content > stacks.a->next->content)
-			stacks = cmd_ra(stacks);
-		stacks = cmd_pa(stacks);
+		cmd_pa(stacks);
+		if (stacks->a->content > stacks->a->next->content)
+			cmd_ra(stacks);
+		cmd_pa(stacks);
 	}
-	return (stacks);
 }

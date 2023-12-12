@@ -24,9 +24,14 @@ SRCS	=	srcs/analyse_params/get_params.c \
 			srcs/cmd/cmd_s.c \
 			srcs/sorting/bubble_sort.c \
 			srcs/sorting/insertion_sort.c \
-			srcs/sorting/selection_sort.c \
 			srcs/sorting/merge_sort.c \
 			srcs/sorting/quick_sort.c \
+			srcs/sorting/selection_sort.c \
+			srcs/sorting/my_sort.c \
+			srcs/sorting/radix_sort.c \
+			srcs/cmd/find_rotation.c \
+			srcs/analyse_params/min_max_values.c \
+			push_swap.c \
 			srcs/sorting/sorting_5/sorting.c \
 			srcs/sorting/sorting_5/sorting_3.c \
 			srcs/sorting/sorting_5/sorting_4.c \
@@ -36,8 +41,7 @@ SRCS	=	srcs/analyse_params/get_params.c \
 			srcs/sorting/sorting_5/sorting_5_suite_3.c \
 			srcs/sorting/sorting_500/sorting.c \
 			srcs/sorting/sorting_500/sorting_200.c \
-			srcs/sorting/sorting_500/sorting_500.c \
-			push_swap.c
+			srcs/sorting/sorting_500/sorting_500.c 
 BONUS	=	bonus/analyse_params/get_params.c \
 			bonus/analyse_params/suite.c \
 			bonus/cmd/cmd_p_bonus.c \

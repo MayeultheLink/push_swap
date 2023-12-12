@@ -12,83 +12,47 @@
 
 #include "push_swap.h"
 
+void sort(t_stacks* stacks)
+{
+		// bubble_sort(stacks);
+		// insertion_sort(stacks);
+		// selection_sort(stacks);
+		// merge_sort(stacks);
+		// radix_sort(stacks);
+		// quick_sort(stacks);
+
+		if (ft_lstsize(stacks->a) <= 5)
+			sort_stacksa(stacks);
+		else if (ft_lstsize(stacks->a) <= 200)
+			sorting_200(stacks);
+		else if (ft_lstsize(stacks->a) <= 2500)
+			sorting_500(stacks);
+		else
+			radix_sort(stacks);
+}
+
 int	main(int ac, char **av)
 {
-	t_list	*params;
-	t_stack	stacks;
-
 	if (ac == 1)
-		return (0);
-	params = get_params(ac, av);
-	if (!params || !params_doublon(params))
 	{
-		free_error(params);
-		write(1, "Error\n", 6);
-		return (0);
-	}
-	stacks = init_stacks(params);
-
-	if (!is_sorted(params))
-	{
-//		stacks = bubble_sort(stacks);
-//		stacks = insertion_sort(stacks);
-//		stacks = selection_sort(stacks);
-		stacks = quick_sort(stacks);
-
-//		if (ft_lstsize(stacks.a) <= 5)
-//			stacks = sort_stacksa(stacks);
-//		else if (ft_lstsize(stacks.a) <= 200)
-//			stacks = sorting_200(stacks);
-//		else
-//			stacks = sorting_500(stacks);
+		write(2, "Please enter as parameters numbers to be sorted.\n", ft_strlen("Please enter as parameters numbers to be sorted.\n"));
+		return (1);
 	}
 
-	while (stacks.a)
+	t_stacks stacks;
+	stacks.a = get_params(av);
+	stacks.b = NULL;
+	if (!stacks.a || !params_doublon(stacks.a))
 	{
-		printf("a : %d\n", stacks.a->content);
-		stacks.a = stacks.a->next;
-	}
-	while (stacks.b)
-	{
-		printf("b : %d\n", stacks.b->content);
-		stacks.b = stacks.b->next;
+		ft_lstfree(stacks.a);
+		write(2, "Error\n", 6);
+		return (1);
 	}
 
+	if (!is_sorted(stacks.a))
+		sort(&stacks);
 
-	return (free_all(stacks));
-}
-
-int	free_all(t_stack stacks)
-{
-	t_list	*tmp;
-
-	while (stacks.a)
-	{
-		tmp = stacks.a;
-		stacks.a = stacks.a->next;
-		free(tmp);
-		tmp = NULL;
-	}
-	while (stacks.b)
-	{
-		tmp = stacks.b;
-		stacks.b = stacks.b->next;
-		free(tmp);
-		tmp = NULL;
-	}
+	ft_lstfree(stacks.a);
+	ft_lstfree(stacks.b);
 	return (0);
-}
-
-t_list	*free_error(t_list *params)
-{
-	t_list	*tmp;
-
-	while (params)
-	{
-		tmp = params;
-		params = params->next;
-		free(tmp);
-		tmp = NULL;
-	}
-	return (NULL);
 }

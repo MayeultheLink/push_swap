@@ -108,9 +108,9 @@ int	params_doublon(t_list *params)
 	return (1);
 }
 
-t_stack	init_stacks(t_list *params)
+t_stacks	init_stacks(t_list *params)
 {
-	t_stack	stacks;
+	t_stacks	stacks;
 
 	stacks.a = params;
 	stacks.b = NULL;

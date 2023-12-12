@@ -12,56 +12,53 @@
 
 #include "push_swap.h"
 
-t_stack	cmd_sa(t_stack stacks)
+void	cmd_sa(t_stacks* stacks)
 {
 	int	tmp;
 
-	if (stacks.a && stacks.a->next && stacks.b && stacks.b->next
-		&& stacks.b->content < stacks.b->next->content)
+	if (stacks->a && stacks->a->next && stacks->b && stacks->b->next
+		&& stacks->b->content < stacks->b->next->content)
 		return (cmd_ss(stacks));
-	if (ft_lstsize(stacks.a) > 1)
+	if (ft_lstsize(stacks->a) > 1)
 	{
-		tmp = stacks.a->next->content;
-		stacks.a->next->content = stacks.a->content;
-		stacks.a->content = tmp;
+		tmp = stacks->a->next->content;
+		stacks->a->next->content = stacks->a->content;
+		stacks->a->content = tmp;
 	}
 	write(1, "sa\n", 3);
-	return (stacks);
 }
 
-t_stack	cmd_sb(t_stack stacks)
+void	cmd_sb(t_stacks* stacks)
 {
 	int	tmp;
 
-	if (stacks.b && stacks.b->next && stacks.a && stacks.a->next
-		&& stacks.a->content > stacks.a->next->content)
+	if (stacks->b && stacks->b->next && stacks->a && stacks->a->next
+		&& stacks->a->content > stacks->a->next->content)
 		return (cmd_ss(stacks));
-	if (ft_lstsize(stacks.b) > 1)
+	if (ft_lstsize(stacks->b) > 1)
 	{
-		tmp = stacks.b->next->content;
-		stacks.b->next->content = stacks.b->content;
-		stacks.b->content = tmp;
+		tmp = stacks->b->next->content;
+		stacks->b->next->content = stacks->b->content;
+		stacks->b->content = tmp;
 	}
 	write(1, "sb\n", 3);
-	return (stacks);
 }
 
-t_stack	cmd_ss(t_stack stacks)
+void	cmd_ss(t_stacks* stacks)
 {
 	int	tmp;
 
-	if (ft_lstsize(stacks.a) > 1)
+	if (ft_lstsize(stacks->a) > 1)
 	{
-		tmp = stacks.a->next->content;
-		stacks.a->next->content = stacks.a->content;
-		stacks.a->content = tmp;
+		tmp = stacks->a->next->content;
+		stacks->a->next->content = stacks->a->content;
+		stacks->a->content = tmp;
 	}
-	if (ft_lstsize(stacks.b) > 1)
+	if (ft_lstsize(stacks->b) > 1)
 	{
-		tmp = stacks.b->next->content;
-		stacks.b->next->content = stacks.b->content;
-		stacks.b->content = tmp;
+		tmp = stacks->b->next->content;
+		stacks->b->next->content = stacks->b->content;
+		stacks->b->content = tmp;
 	}
 	write(1, "ss\n", 3);
-	return (stacks);
 }

@@ -12,19 +12,17 @@
 
 #include "push_swap.h"
 
-t_stack	sort_3(t_stack stacks)
+void	sort_3(t_stacks* stacks)
 {
-	if (stacks.a && ft_lstsize(stacks.a) == 3)
+	if (stacks->a && ft_lstsize(stacks->a) == 3)
 	{
-		if (stacks.a->content > stacks.a->next->content
-			&& stacks.a->content > ft_lstlast(stacks.a)->content)
-			stacks = cmd_ra(stacks);
-		if (stacks.a->content > stacks.a->next->content)
-			stacks = cmd_sa(stacks);
-		if (stacks.a->next->content > ft_lstlast(stacks.a)->content)
-			stacks = cmd_rra(stacks);
-		if (stacks.a->content > stacks.a->next->content)
-			stacks = cmd_sa(stacks);
+		if (stacks->a->content > stacks->a->next->content && stacks->a->content > ft_lstlast(stacks->a)->content)
+			cmd_ra(stacks);
+		if (stacks->a->content > stacks->a->next->content)
+			cmd_sa(stacks);
+		if (stacks->a->next->content > ft_lstlast(stacks->a)->content)
+			cmd_rra(stacks);
+		if (stacks->a->content > stacks->a->next->content)
+			cmd_sa(stacks);
 	}
-	return (stacks);
 }

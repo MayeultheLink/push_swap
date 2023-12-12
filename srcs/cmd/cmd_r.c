@@ -12,18 +12,18 @@
 
 #include "push_swap.h"
 
-t_stack	cmd_ra(t_stack stacks)
+void	cmd_ra(t_stacks* stacks)
 {
 	int		param;
 	t_list	*tmp;
 
-	if (stacks.a && stacks.a->next && stacks.b && stacks.b->next
-		&& stacks.b->content < ft_lstlast(stacks.b)->content)
+	if (stacks->a && stacks->a->next && stacks->b && stacks->b->next
+		&& stacks->b->content < ft_lstlast(stacks->b)->content)
 		return (cmd_rr(stacks));
-	if (ft_lstsize(stacks.a) > 1)
+	if (ft_lstsize(stacks->a) > 1)
 	{
-		param = stacks.a->content;
-		tmp = stacks.a;
+		param = stacks->a->content;
+		tmp = stacks->a;
 		while (tmp->next)
 		{
 			tmp->content = tmp->next->content;
@@ -32,21 +32,20 @@ t_stack	cmd_ra(t_stack stacks)
 		tmp->content = param;
 	}
 	write(1, "ra\n", 3);
-	return (stacks);
 }
 
-t_stack	cmd_rb(t_stack stacks)
+void	cmd_rb(t_stacks* stacks)
 {
 	int		param;
 	t_list	*tmp;
 
-	if (stacks.b && stacks.b->next && stacks.a && stacks.a->next
-		&& stacks.a->content > ft_lstlast(stacks.a)->content)
+	if (stacks->b && stacks->b->next && stacks->a && stacks->a->next
+		&& stacks->a->content > ft_lstlast(stacks->a)->content)
 		return (cmd_rr(stacks));
-	if (ft_lstsize(stacks.b) > 1)
+	if (ft_lstsize(stacks->b) > 1)
 	{
-		param = stacks.b->content;
-		tmp = stacks.b;
+		param = stacks->b->content;
+		tmp = stacks->b;
 		while (tmp->next)
 		{
 			tmp->content = tmp->next->content;
@@ -55,15 +54,13 @@ t_stack	cmd_rb(t_stack stacks)
 		tmp->content = param;
 	}
 	write(1, "rb\n", 3);
-	return (stacks);
 }
 
-t_stack	cmd_rr(t_stack stacks)
+void	cmd_rr(t_stacks* stacks)
 {
-	stacks.a = cmd_r(stacks.a);
-	stacks.b = cmd_r(stacks.b);
+	stacks->a = cmd_r(stacks->a);
+	stacks->b = cmd_r(stacks->b);
 	write(1, "rr\n", 3);
-	return (stacks);
 }
 
 t_list	*cmd_r(t_list *lst)

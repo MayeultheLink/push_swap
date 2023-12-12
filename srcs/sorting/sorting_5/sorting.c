@@ -12,16 +12,14 @@
 
 #include "push_swap.h"
 
-t_stack	sort_stacksa(t_stack stacks)
+void	sort_stacksa(t_stacks* stacks)
 {
-	if (ft_lstsize(stacks.a) == 5)
-		return (sort_5(stacks));
-	if (ft_lstsize(stacks.a) == 4)
-		return (sort_4(stacks));
-	if (ft_lstsize(stacks.a) == 3)
-		return (sort_3(stacks));
-	if (ft_lstsize(stacks.a) == 2
-		&& stacks.a->content > stacks.a->next->content)
-		return (cmd_sa(stacks));
-	return (stacks);
+	if (ft_lstsize(stacks->a) == 5)
+		sort_5(stacks);
+	if (ft_lstsize(stacks->a) == 4)
+		sort_4(stacks);
+	if (ft_lstsize(stacks->a) == 3)
+		sort_3(stacks);
+	if (ft_lstsize(stacks->a) == 2 && stacks->a->content > stacks->a->next->content)
+		cmd_sa(stacks);
 }

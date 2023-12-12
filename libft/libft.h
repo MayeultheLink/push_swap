@@ -20,13 +20,14 @@
 typedef struct s_list
 {
 	int				content;
-	int				indice;
+	// int				indice;
 	struct s_list	*next;
 }				t_list;
 
 int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
+void			ft_free_double_ptr(char** double_ptr);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
 int				ft_isascii(int c);
@@ -37,6 +38,7 @@ void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstadd_front(t_list **alst, t_list *new);
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 t_list			*ft_lstdelone(t_list *lst, int content);
+void			ft_lstfree(t_list* list);
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*d)(void *));
@@ -68,6 +70,7 @@ char			*ft_strnstr(const char *s1, const char *s2, size_t len);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
+int				ft_tab_of_str_len(char** tab);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 

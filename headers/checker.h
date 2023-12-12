@@ -20,34 +20,34 @@ typedef struct s_stack
 {
 	t_list	*a;
 	t_list	*b;
-}				t_stack;
+}				t_stacks;
 
 int		param_int(char *p);
 t_list	*get_params(int ac, char **av);
 t_list	*get_params2(char **av, int i);
 int		params_doublon(t_list *params);
-t_stack	init_stacks(t_list *params);
+t_stacks	init_stacks(t_list *params);
 int		is_sorted_bonus(t_list *lst);
-t_stack	cmd_pb_bonus(t_stack stacks);
-t_stack	cmd_pa_bonus(t_stack stacks);
-t_stack	cmd_ra_bonus(t_stack stacks);
-t_stack	cmd_rb_bonus(t_stack stacks);
-t_stack	cmd_rr_bonus(t_stack stacks);
+t_stacks	cmd_pb_bonus(t_stacks stacks);
+t_stacks	cmd_pa_bonus(t_stacks stacks);
+t_stacks	cmd_ra_bonus(t_stacks stacks);
+t_stacks	cmd_rb_bonus(t_stacks stacks);
+t_stacks	cmd_rr_bonus(t_stacks stacks);
 t_list	*cmd_r_bonus(t_list *lst);
-t_stack	cmd_rra_bonus(t_stack stacks);
-t_stack	cmd_rrb_bonus(t_stack stacks);
-t_stack	cmd_rrr_bonus(t_stack stacks);
+t_stacks	cmd_rra_bonus(t_stacks stacks);
+t_stacks	cmd_rrb_bonus(t_stacks stacks);
+t_stacks	cmd_rrr_bonus(t_stacks stacks);
 t_list	*cmd_rrab_bonus(t_list *lst);
-t_stack	cmd_sa_bonus(t_stack stacks);
-t_stack	cmd_sb_bonus(t_stack stacks);
-t_stack	cmd_ss_bonus(t_stack stacks);
+t_stacks	cmd_sa_bonus(t_stacks stacks);
+t_stacks	cmd_sb_bonus(t_stacks stacks);
+t_stacks	cmd_ss_bonus(t_stacks stacks);
 char	*get_next_line(void);
 int		gnl(char **line, int i);
-t_stack	sorting(t_stack stacks);
-t_stack	sorting_s_p(t_stack stacks, char *cmd);
-t_stack	sorting_r(t_stack stacks, char *cmd);
-t_stack	sorting_rr(t_stack stacks, char *cmd);
-void	free_all(t_stack stacks);
+t_stacks	sorting(t_stacks stacks);
+t_stacks	sorting_s_p(t_stacks stacks, char *cmd);
+t_stacks	sorting_r(t_stacks stacks, char *cmd);
+t_stacks	sorting_rr(t_stacks stacks, char *cmd);
+void	free_all(t_stacks stacks);
 t_list	*free_error(t_list *params);
 
 #endif
