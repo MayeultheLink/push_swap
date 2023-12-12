@@ -55,7 +55,7 @@ To get the highest grade possible on this project, the program must sort 100 num
 Therefore I implemented an algorithm that is optimized for this project. I worked with chunks : different sizes of chunks are passed to the other stack, depending on the number of integers to be sorted.
 I end up with a roughly sorted stack in B, which I can pass in A with a selection sort. With this, I have a worst case scenario still above 700 commands for 100 numbers and above 5500 commands for 500 numbers, but in approximately 95% of cases, the program will answer the demands of the subject.
 
-We can see in the results above that, the larger the number of integers to sort is, the more efficient radix sort becomes. I empirically determined that, around 2000 numbers, radix becomes more efficient than my algorithm, so it will be the one I use for any larger number of integers to sort.
+We can see in the results above that, the larger the number of integers to sort is, the more efficient radix sort becomes. I empirically determined that, around 2500 numbers, radix becomes more efficient than my algorithm, so it will be the one I use for any larger number of integers to sort.
 
 You can use the checker executable to verify that the commands written in the standard output will in fact sort the integers passed as parameters. Usage : ./push_swap [integers to sort] | ./checker [same integers]
 
